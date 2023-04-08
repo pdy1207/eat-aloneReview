@@ -9,6 +9,13 @@ app.listen(8081, function () {
 
 // nodemon으로 서버 재실행 자동화하기 npm install -g nodemon
 
-app.get("/sample", function (요청, 응답) {
+app.use("/public", express.static("public"));
+
+// css 사용
+
+app.get("/", function (요청, 응답) {
   응답.sendFile(__dirname + "/index.html");
+});
+app.get("/login", function (요청, 응답) {
+  응답.sendFile(__dirname + "/login.html");
 });
