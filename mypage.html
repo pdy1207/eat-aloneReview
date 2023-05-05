@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이집어때? | 마이페이지</title>
+    <link rel="stylesheet" href="public/css/style.css" />
+    <link rel="stylesheet" href="public/css/mypage.css" />
+  </head>
+
+  <body>
+    <header class="Header__Content">
+      <div class="house-header__Box">
+        <div class="house-header__Titile header-login">
+          <div class="house-logo">
+            <a href="/"> <h1 class="reveal-text">이집어때?</h1></a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div>
+      <div class="title">
+        <div class="row">나의 프로필 조회</div>
+      </div>
+      <div class="row">
+        <table id="tbl_info" class="table table-user">
+          <tbody>
+            <tr id="tr_name">
+              <th>닉네임</th>
+              <td>
+                <input
+                  id="txt_name"
+                  class="input-text w400"
+                  type="text"
+                  value="qkrehdud"
+                  placeholder="이름"
+                /><br /><br />
+                <span class="box-content">
+                  이집어때? 회원정보로 등록하실 닉네임을 입력해주세요. (영문
+                  또는 숫자 4~10자, 한글 포함 시 2~10자)</span
+                >
+              </td>
+            </tr>
+            <tr id="tr_intro">
+              <th>자기소개</th>
+              <td>
+                <input
+                  id="txt_intro"
+                  class="input-text w400"
+                  type="text"
+                  value="qkrehdud"
+                  placeholder="자기소개를 입력하세요."
+                />
+                <br />
+                <br />
+                <div class="w400 tr" style="text-align: right">
+                  <span id="lbl_limit">0</span> / 25
+                </div>
+              </td>
+            </tr>
+            <tr id="tr_email">
+              <th>이메일</th>
+              <td>
+                <input
+                  id="txt_email"
+                  class="input-text w400"
+                  type="text"
+                  value="pdyme1207@gmail.com"
+                  placeholder="이메일"
+                /><br /><br />
+                <span class="box-content">
+                  이집어때? 에서 이용하실 이메일을 입력해 주세요.
+                </span>
+              </td>
+            </tr>
+            <tr id="tr_phone">
+              <th>휴대전화인증</th>
+              <td>
+                <div id="div_phone_Y">
+                  <span class="fs-20 fw-b"
+                    >01012341234
+                    <span class="fc-mint">인증완료</span>
+                  </span>
+                  <button
+                    id="btn_phone"
+                    type="button"
+                    class="btn btn-black w200"
+                  >
+                    휴대전화재인증
+                  </button>
+                </div>
+              </td>
+            </tr>
+            <tr id="tr_pw">
+              <th>비밀번호</th>
+              <td>
+                <div id="div_password_Y">
+                  <input
+                    id="txt_password"
+                    class="input-text w400"
+                    type="password"
+                    placeholder="비밀번호"
+                  /><br /><br />
+                  <!-- <input
+                    id="txt_password2"
+                    class="input-text w400"
+                    type="password"
+                    placeholder="비밀번호 확인"
+                  /><br /><br /> -->
+                  <span class="box-content">
+                    특수문자(예: !@#$ 등) 1자 이상을 포함한 10~15 글자의
+                    비밀번호 입니다.
+                  </span>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="row" style="padding: 24px 0 0 40px">
+        <div class="row tc" style="padding: 50px 0 55px 0; text-align: center">
+          <a href="/">
+            <button
+              id="btn_submit"
+              type="button"
+              class="btn btn-mint w400 fs-16"
+              style="height: 65px"
+            >
+              변경사항저장
+            </button>
+          </a>
+        </div>
+      </div>
+    </div>
+    <footer class="footer-content" style="top: 14px">
+      <div class="footer-wrap">
+        <section class="footer-top">
+          <div class="footer-notice">
+            <a href="/">제휴 문의</a>
+            <div class="footer-spliter"></div>
+            <a href="/">개인정보처리방침</a>
+            <div class="footer-spliter"></div>
+            <a href="/">이용약관</a>
+            <div class="footer-spliter"></div>
+            <a href="/">채팅 서비스 이용약관</a>
+          </div>
+        </section>
+        <section class="footer-section__Info">
+          <span class="footer-secion__Name">(주)이집어때?</span>
+          <div class="footer-spliter"></div>
+          <span>대표 : 박도영</span>
+          <div class="footer-spliter"></div>
+          <span>소재지 : 대전 대덕구 송촌동 어딘가</span>
+        </section>
+        <section class="footer-email">이메일 문의 : pdy1207@gmail.com</section>
+        <section class="footer-section__Contact">
+          <div>
+            전화 문의 : 042-123-1234 (평일 : 10:00 ~ 19:00, 주말/공휴일 제외)
+          </div>
+          <div>이집어때? Ⓒ 2023 pdy1207</div>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>

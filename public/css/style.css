@@ -18,14 +18,13 @@ body {
 }
 
 /* header */
-.Header__Content,
-nav {
+.Header__Content {
   display: flex;
   justify-content: center;
   min-width: 1070px;
   width: 100%;
 }
-.hjPsod {
+.house-header__Box {
   display: flex;
   -webkit-box-pack: center;
   justify-content: center;
@@ -35,7 +34,7 @@ nav {
   border-bottom: 1px solid rgb(234, 234, 234);
   background-color: white;
 }
-.kVWdDg {
+.house-header__Titile {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 282px 506px auto;
@@ -47,7 +46,7 @@ nav {
   padding-right: 0px;
   box-sizing: border-box;
 }
-.xiEif {
+.house-logo {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
@@ -55,10 +54,10 @@ nav {
   height: 100%;
   padding: 0px 10px;
 }
-.gcDvBe {
+.house-search {
   min-width: 430px;
 }
-.eoloPW {
+.auth-login__Box {
   display: flex;
   -webkit-box-pack: end;
   justify-content: flex-end;
@@ -75,7 +74,7 @@ img {
   user-select: none;
   pointer-events: none;
 }
-.iwwtC {
+.house-search__Box {
   position: relative;
   display: flex;
   -webkit-box-align: center;
@@ -87,7 +86,7 @@ img {
   border-radius: 21px;
   background-color: rgb(245, 245, 245);
 }
-.kiOFXj {
+.house-search__Button {
   border: none;
   position: absolute;
   right: 20px;
@@ -96,7 +95,7 @@ img {
   margin-bottom: 2px;
   cursor: pointer;
 }
-.hZrEpQ {
+.search-input {
   display: block;
   max-width: 72.5%;
   width: 100%;
@@ -111,12 +110,12 @@ img {
   letter-spacing: -0.0469rem;
   color: rgb(32, 32, 32);
 }
-.kiOFXj img {
+.house-search__Button img {
   width: 22px;
   height: 22px;
   margin-bottom: 2px;
 }
-.eoloPW {
+.auth-login__Box {
   display: flex;
   -webkit-box-pack: end;
   justify-content: flex-end;
@@ -124,7 +123,7 @@ img {
   padding-left: 24px;
   white-space: nowrap;
 }
-.eoloPW a {
+.auth-login__Box a {
   text-decoration: none;
   font-size: 0.875rem;
   color: rgb(32, 32, 32);
@@ -169,7 +168,7 @@ img {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: #ff7400;
+  background-color: var(--font);
   transform: scaleX(0);
   transform-origin: 0 50%;
   pointer-events: none;
@@ -237,237 +236,77 @@ nav {
   align-items: center;
   height: 44px;
   transition: opacity 0.2s ease-in-out 0s;
-  color: #ff7400;
+  color: var(--font);
 }
 
 /* main */
 
-.Content,
-.Top__Nav__Content {
-  display: flex;
-  justify-content: center;
-  min-width: 1070px;
-  position: relative;
-  width: 100%;
-}
-.Top__Nav__Content {
-  z-index: 350;
-}
-.UvqPN {
-  position: fixed;
-  top: 0px;
-  z-index: 10;
-  width: 100%;
-  min-width: 1070px;
-  height: 74px;
-  opacity: 0;
-  object-fit: cover;
-  background-size: 100%;
-  background-position: center center;
-  background-repeat: no-repeat;
-}
-.UvqPN .Top__Nav__Box__Wrap {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  width: 100%;
-  min-width: 1070px;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.56);
-}
-.UvqPN .Top__Nav__Box__Wrap .Top__Nav__Main {
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  align-items: center;
-  width: 1070px;
-  height: 100%;
-}
-.UvqPN .Top__Nav__Box__Wrap .Top__Nav__Main .Top__Nav__Link {
-  padding: 10px;
-}
-.UvqPN .Top__Nav__Box__Wrap .Top__Nav__Main .Top__Nav__Link .Top__Nav__Logo {
-  width: 148.2px;
-  height: 28.7px;
-}
-.UvqPN .Top__Nav__Box__Wrap .Top__Nav__Center {
-  display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  align-items: center;
-  gap: 8px;
-  width: fit-content;
-  height: 100%;
-}
-.UvqPN .Top__Nav__Box__Wrap .Top__Nav__Text {
-  padding-bottom: 4px;
-  white-space: nowrap;
-  font-size: 1.25rem;
-  font-weight: 300;
-  letter-spacing: -0.0625rem;
-  color: rgb(255, 255, 255);
-}
-.UvqPN .Top__Nav__Box__Wrap .Top__Nav__Text .Top__Nav__Content__Username {
-  font-weight: 500;
-  color: rgb(10, 199, 206);
-}
-.UvqPN .Top__Nav__Box__Wrap .Top__Nav__Text .Top__Nav__Content__Location {
-  cursor: pointer;
-  font-weight: 500;
-}
-.iA-dFUD {
-  width: 115px;
-  height: 32px;
-  margin-left: 6px;
-  padding: 5px 18px 7px;
-  border-radius: 16px;
-  background-color: rgb(25, 183, 194);
-  white-space: nowrap;
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: -0.0437rem;
-  color: rgb(255, 255, 255);
-}
-.kMLcax {
-  gap: 4.5px;
-  width: 130px;
-  height: 32px;
-  padding: 5px 15.8px 7px;
-  border-radius: 16px;
-  background-color: rgb(44, 135, 241);
-  white-space: nowrap;
-  font-size: 0.875rem;
-  font-weight: 500;
-  letter-spacing: -0.0437rem;
-  color: rgb(255, 255, 255);
-}
-.gLHQrB .Location__Refresh__Img {
-  position: relative;
-  top: 1px;
-  width: 16px;
-  height: 16px;
-}
-.UvqPN .Top__Nav__Box__Wrap .Top__Nav__Flexable__Spacer {
-  min-width: 163px;
-  height: 100%;
-}
-.eVXNVy {
+.container-main__Title {
   top: 72px;
   position: relative;
   display: flex;
-  -webkit-box-pack: center;
   justify-content: center;
   width: 100%;
-  min-width: 1070px;
-  height: 560px;
-  transition: height 0.3s ease-in-out 0s;
   background: rgba(0, 0, 0, 0.25);
 }
-.cKeDhy {
+.container-image {
   position: absolute;
   z-index: -1;
   width: 100%;
   height: 560px;
-  transition: all 0.3s ease-in-out 0s;
-  opacity: 1;
   object-fit: cover;
-  background-size: 50%;
-  background-position: center center;
-  background-repeat: no-repeat;
 }
-.eVXNVy .Top__Nav__Init__Wrap {
+.container-main__Title .container-main__Wrap {
   display: flex;
   flex-direction: column;
-  -webkit-box-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
   align-items: center;
   gap: 25px;
-  transition: height 0.3s ease-in-out 0s;
-  width: 1070px;
   height: 560px;
 }
-.eVXNVy .Nav__Init__Info__Box {
+.container-main__Title .container-main__Box {
   display: flex;
   flex-direction: column;
-  -webkit-box-align: center;
   align-items: center;
   min-height: 83px;
 }
-.eVXNVy .Nav__Init__Info__First {
+.container-main__Title .container-main__First {
   min-height: 38px;
   font-size: 1.625rem;
   font-weight: 300;
   letter-spacing: -0.0813rem;
   color: rgb(255, 255, 255);
 }
-.eVXNVy .Nav__Init__Info__Second {
+.container-main__Title .container-main__Second {
   min-height: 45px;
   font-size: 1.875rem;
   font-weight: 300;
   letter-spacing: -0.0938rem;
   color: rgb(255, 255, 255);
 }
-.eVXNVy .Nav__Init__Info__Location {
+.container-main__Title .container-main__Location {
   display: inline-block;
   font-weight: 500;
 }
-.eVXNVy .Nav__Button__Wrap {
-  display: flex;
-  gap: 10px;
-  min-height: 40px;
-}
-.hLqXEn {
-  padding: 8px 32px 10px;
+
+.review-button {
+  padding: 14px 32px 15px;
   border-radius: 20px;
   font-size: 0.9375rem;
   font-weight: 500;
   letter-spacing: -0.0469rem;
-}
-
-.lfLziA {
-  display: inline-flex;
-  -webkit-box-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  justify-content: center;
-  outline: none;
   cursor: pointer;
   border: none;
-  background: #ff7400;
+  background: var(--font);
   color: rgb(255, 255, 255);
 }
-.gLHQrB {
-  display: flex;
-  -webkit-box-align: center;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 20px 10px 18px;
-  border-radius: 20px;
-  font-size: 0.9375rem;
-  font-weight: 500;
-  letter-spacing: -0.0469rem;
-  background-color: rgb(44, 135, 241);
-  color: rgb(255, 255, 255);
-}
-.gLHQrB .Location__Refresh__Img {
-  position: relative;
-  top: 1px;
-  width: 16px;
-  height: 16px;
-}
-.fywKOO {
+
+.location-box {
   position: absolute;
   bottom: 0px;
   right: 0px;
-  width: 300px;
-  height: 150px;
 }
-.fywKOO .Keyvisual__Link__Content {
+.location-box .location-box__Content {
   position: absolute;
   bottom: 15px;
   right: 16px;
@@ -486,7 +325,7 @@ nav {
   color: rgb(255, 255, 255);
   transition: all 0.1s ease-in-out 0s;
 }
-.fywKOO .Keyvisual__Link__Content .Keyvisual__Link__Icon {
+.location-box .location-box__Content .location-box_Button {
   position: relative;
   top: 1px;
   width: 12px;
@@ -494,24 +333,18 @@ nav {
 }
 
 /* footer */
-.emuZuP {
+.footer-content {
+  min-width: 1070px;
   position: relative;
   top: 152px;
   box-sizing: border-box;
   display: flex;
-  -webkit-box-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
   align-items: center;
-  width: 100%;
-  min-width: 1070px;
-  height: 198px;
-  max-height: 198px;
-  margin-top: 0px;
+  justify-content: center;
   padding: 40px 0px;
-  background-color: #eee;
+  background-color: #191f28;
 }
-.emuZuP .Bottom__Wrap {
+.footer-content .footer-wrap {
   display: flex;
   flex-direction: column;
   -webkit-box-pack: center;
@@ -520,67 +353,46 @@ nav {
   height: 118px;
   font-size: 0.875rem;
   letter-spacing: -0.0437rem;
-  color: rgb(32, 32, 32);
+  color: #6b7684;
 }
-.emuZuP .Footer__Top {
-  display: flex;
-  -webkit-box-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  align-items: center;
+.footer-content .footer-top {
   margin-bottom: 24px;
 }
-.emuZuP .Footer__Section__Company__Info {
+.footer-content .footer-section__Info {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
   gap: 10px;
 }
-.emuZuP .Footer__Section__Email {
+.footer-content .footer-email {
   margin-top: 8px;
   margin-bottom: 8px;
 }
-.emuZuP .Footer__Section__Contact {
+.footer-content .footer-section__Contact {
   display: flex;
   -webkit-box-pack: justify;
   justify-content: space-between;
 }
-.emuZuP .Footer__Notice {
+.footer-content .footer-notice {
   gap: 10px;
-  -webkit-box-align: center;
-  align-items: center;
-  list-style: none;
-  padding: 0px;
-  margin: 0px;
   display: flex;
-  color: rgb(32, 32, 32);
   font-size: 0.875rem;
 }
-.emuZuP .Footer__Notice a {
+.footer-content .footer-notice a {
   cursor: pointer;
   font-weight: 700;
 }
 
-.emuZuP a {
+.footer-content a {
   text-decoration: transparent;
   color: inherit;
 }
-.emuZuP .Footer__Spliter {
-  width: 1px;
-  height: 10px;
-  margin: 0px;
-  background-color: rgb(218, 218, 218);
-}
-.emuZuP .Section__Company__Name {
+
+.footer-content .footer-secion__Name {
   font-weight: bold;
 }
-.emuZuP .Footer__Spliter {
-  width: 1px;
-  height: 10px;
-  margin: 0px;
-  background-color: rgb(218, 218, 218);
-}
-.emuZuP .Footer__Spliter {
+
+.footer-content .footer-spliter {
   width: 1px;
   height: 10px;
   margin: 0px;
@@ -590,17 +402,15 @@ nav {
 /* tag */
 .tag-list {
   width: 104rem;
-  max-width: 90vw;
+  max-width: 100vw;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 2rem 0;
   position: relative;
   padding: 1.3rem 0;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
   top: 114px;
-  margin: 0 auto;
 }
 .loop-slider .inner {
   display: flex;

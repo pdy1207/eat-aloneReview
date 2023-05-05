@@ -10,67 +10,61 @@
   <body>
     <div style="position: fixed; z-index: 1000; width: 100%">
       <header class="Header__Content">
-        <div class="sc-dmyDGi hjPsod Common__Desk__Header">
-          <div class="sc-hLQRIN kVWdDg Header__Wrap">
-            <div class="sc-jTQDnj xiEif Main__Logo">
+        <div class="house-header__Box">
+          <div class="house-header__Titile">
+            <div class="house-logo">
               <a href="/"> <h1 class="reveal-text">이집어때?</h1></a>
             </div>
-            <div class="sc-eDLJxc gcDvBe">
-              <div class="sc-qZqnM iwwtC Input__Wrap">
+            <div class="house-search">
+              <div class="house-search__Box">
                 <button
-                  class="sc-irLwvL kiOFXj search"
+                  class="house-search__Button"
                   type="button"
                   aria-label="검색하기 버튼"
                 >
                   <img
-                    id="SearchImg"
                     src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/web/react_components/SearchQueryInput/search.png"
                     alt=""
                   /></button
                 ><input
-                  class="sc-csKIKE hZrEpQ Search__Input"
+                  class="search-input"
                   placeholder="지역, 음식 또는 식당명 입력"
                   value=""
                 />
               </div>
             </div>
-            <div class="sc-gLLvby eoloPW Auth__Box">
-              <a class="Auth__Login" href="/login">로그인</a
-              ><a class="Auth__Register" href="/login">회원가입</a>
+            <div class="auth-login__Box">
+              <a href="/login">로그인</a>
+              <a href="/MyPage">마이페이지</a>
             </div>
           </div>
         </div>
       </header>
     </div>
-    <div class="Top__Nav__Content">
-      <div
-        class="sc-kFCsca UvqPN Top__Nav__Box"
-        data-aos=""
-        data-aos-anchor-placement=""
-      ></div>
-      <div class="sc-qZqnM eVXNVy Top__Nav__KeyVisual">
+    <div>
+      <div class="container-main__Title">
         <img
-          class="sc-jsEegt cKeDhy Top__Nav__Init__Img"
+          class="container-image"
           sizes="1920px"
           src="./public/css/food.jpg"
         />
-        <div class="Top__Nav__Init__Wrap">
-          <div class="Nav__Init__Info__Box">
-            <p class="Nav__Init__Info__First">당신을 위한</p>
-            <h1 class="Nav__Init__Info__Second">
-              <span class="Nav__Init__Info__Location">혼밥</span>&nbsp;추천 맛집
+        <div class="container-main__Wrap">
+          <div class="container-main__Box">
+            <p class="container-main__First">당신을 위한</p>
+            <h1 class="container-main__Second">
+              <span class="container-main__Location">혼밥</span>&nbsp;추천 맛집
             </h1>
           </div>
-          <div class="Nav__Button__Wrap">
-            <button class="sc-hLQRIN lfLziA sc-iBdmCd hLqXEn">
-              리뷰 보러 가기
-            </button>
+          <div>
+            <a href="/Review">
+              <button class="review-button">리뷰 보러 가기</button>
+            </a>
           </div>
         </div>
-        <a href="#" target="_blank" class="sc-dmyDGi fywKOO"
-          ><span class="Keyvisual__Link__Content"
+        <a href="#" target="_blank" class="location-box"
+          ><span class="location-box__Content"
             ><img
-              class="Keyvisual__Link__Icon"
+              class="location-box_Button"
               src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/web/react_components/indexPage/top__keyvisul__link__icon.png"
               alt="상단 키 비쥬얼 식당 링크 버튼 아이콘"
             />도영이찍은어딘가</span
@@ -134,31 +128,29 @@
         </div>
       </div>
     </div>
-    <footer class="sc-lnskGP emuZuP Bottom__Content">
-      <div class="Bottom__Wrap">
-        <section class="Footer__Top">
-          <div class="Footer__Notice">
+    <footer class="footer-content">
+      <div class="footer-wrap">
+        <section class="footer-top">
+          <div class="footer-notice">
             <a href="/">제휴 문의</a>
-            <div class="Footer__Spliter"></div>
+            <div class="footer-spliter"></div>
             <a href="/">개인정보처리방침</a>
-            <div class="Footer__Spliter"></div>
+            <div class="footer-spliter"></div>
             <a href="/">이용약관</a>
-            <div class="Footer__Spliter"></div>
+            <div class="footer-spliter"></div>
             <a href="/">채팅 서비스 이용약관</a>
           </div>
         </section>
-        <section class="Footer__Section__Company__Info">
-          <span class="Section__Company__Name">(주)이집어때?</span>
-          <div class="Footer__Spliter"></div>
+        <section class="footer-section__Info">
+          <span class="footer-secion__Name">(주)이집어때?</span>
+          <div class="footer-spliter"></div>
           <span>대표 : 박도영</span>
-          <div class="Footer__Spliter"></div>
+          <div class="footer-spliter"></div>
           <span>소재지 : 대전 대덕구 송촌동 어딘가</span>
         </section>
-        <section class="Footer__Section__Email">
-          이메일 문의 : pdy1207@gmail.com
-        </section>
-        <section class="Footer__Section__Contact">
-          <div class="Section__Contact__Number">
+        <section class="footer-email">이메일 문의 : pdy1207@gmail.com</section>
+        <section class="footer-section__Contact">
+          <div>
             전화 문의 : 042-123-1234 (평일 : 10:00 ~ 19:00, 주말/공휴일 제외)
           </div>
           <div>이집어때? Ⓒ 2023 pdy1207</div>
