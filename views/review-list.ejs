@@ -1,0 +1,2139 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no"
+    />
+    <title>전체 화면 지도 표시</title>
+    <link rel="stylesheet" href="public/css/style.css" />
+    <link rel="stylesheet" href="public/css/review.css" />
+    <link rel="stylesheet" href="public/css/review-list.css" />
+    <!-- 네이버 지도 API 스크립트를 불러옵니다. -->
+    <script
+      type="text/javascript"
+      src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=s34sdxqx31"
+    ></script>
+  </head>
+  <body>
+    <div class="sc-bBkKQz irqSKG ReadMore__App">
+      <div class="sc-fLsdZI cfmbDr PoiListMain">
+        <div class="sc-dJGLCQ jtPByk">
+          <header class="sc-hIPCAL ioGjOY ReadMore__Logo">
+            <a href="/"> <h1 class="reveal-text">이집어때?</h1></a
+            ><button class="sc-dmXXqC fLNMWz">
+              <a class="ReadMore__Logo__Link" href="/" target="_blank">
+                <img
+                  class="Detail__Share__Img"
+                  src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/web/react_components/indexPage/popup_share.png"
+                  alt=""
+                />
+              </a>
+            </button>
+          </header>
+          <div class="sc-khjJjR geCcyM">
+            # 대전
+            <span class="ReadMore__Title">
+              # 비슷한 연령대가 선호하는 맛집</span
+            >
+          </div>
+        </div>
+        <ol class="sc-ifyqMZ dwUlev Poi__List__Box">
+          <% for(var i=0; i<reviewList.length; i++){ %>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="nq6ponyMxz7B"
+              href="#"
+              data-lat="<%= reviewList[i].dataLat %>"
+              data-lng="<%= reviewList[i].dataLng %>"
+              rel="noopener"
+              id="blocknq6ponyMxz7B"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20200703024947_photo1_a555f5542224.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  
+                  <div class="InfoHeader">
+                    <h2 id="titlenq6ponyMxz7B" >
+                      <%= reviewList[i].title %>
+                    </h2>
+                  </div>
+                  <p class="Category">
+                    <span><%= reviewList[i].subTitle %></span>
+                  </p>
+                  <div class="Hash">
+                    <span># <%= reviewList[i].hashTag %></span>
+                  </div>
+                  <div class="Rate">
+                    <p class="Score">
+                      <span><%= reviewList[i].score %></span> 점
+                    </p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />5.0&nbsp;(4명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;4
+                    </p>
+                  </div>
+                 
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >틈새라면 라면은 진짜 언제먹어도 너무 맛있다 진짜진짜
+                    강추다</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>2</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.유쥬롱</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <% } %>
+          <!-- <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="BjrPsVD1BM6Y"
+              href="/profile.php?rid=BjrPsVD1BM6Y"
+              target="_blank"
+              rel="noopener"
+              id="blockBjrPsVD1BM6Y"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20230729105822295_photo_0w9x45O7tQVO.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleBjrPsVD1BM6Y" class="">
+                      우사미 <span class="Info__Title__Place">대전</span>
+                    </h2>
+                    <div class="addr"><span>1.2km</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>전복</span>, &nbsp;<span>소고기보신탕</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#회식장소</span
+                    >,&nbsp;<span>#주차</span>,&nbsp;<span>#깔끔한</span>,&nbsp;<span>#놀이방</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>37</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />3.7&nbsp;(3명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;1
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >매장이 쾌적하고 깔끔합니다. 점심 시간대라 냉면을 먹었는데
+                    특이하게 육전이 들어가 있습니다. 비빔냉면은 달짝지근하니
+                    맛있었고, 같이 오는 국물은 살짝 비린내가 났습니다.</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>2</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.밍묭</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="nq6ponyMxz7B"
+              href="#"
+              data-lat="36.3515021"
+              data-lng="127.4375133"
+              rel="noopener"
+              id="blocknq6ponyMxz7B"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20200703024947_photo1_a555f5542224.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titlenq6ponyMxz7B" class="">
+                      틈새라면
+                      <span class="Info__Title__Place">대전터미널점</span>
+                    </h2>
+                    <div class="addr"><span>889m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>라면</span>, &nbsp;<span>빨계떡</span>&nbsp;
+                  </p>
+                  <div class="Hash"><span>#혼밥</span>&nbsp;</div>
+                  <div class="Rate">
+                    <p class="Score"><span>43</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />5.0&nbsp;(4명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;4
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >틈새라면 라면은 진짜 언제먹어도 너무 맛있다 진짜진짜
+                    강추다</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>2</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.유쥬롱</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="DRmMe6Snb6Y1"
+              href="/profile.php?rid=DRmMe6Snb6Y1"
+              target="_blank"
+              rel="noopener"
+              id="blockDRmMe6Snb6Y1"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20210723085852_photo1_6bb9e1ff14ff.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleDRmMe6Snb6Y1" class="">
+                      등촌샤브칼국수
+                      <span class="Info__Title__Place">용전점</span>
+                    </h2>
+                    <div class="addr"><span>1km</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>칼국수</span>, &nbsp;<span>샤브칼국수</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#주차</span
+                    >,&nbsp;<span>#예쁜</span>,&nbsp;<span>#단체석</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>38</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />5.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;2
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >샤브샤브는 그냥그런데 칼국수부터 볶음밥 진짜 기가막혀료
+                    너무 맛있어요</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.뚱냥이</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="vGvvm0vWHntQ"
+              href="/profile.php?rid=vGvvm0vWHntQ"
+              target="_blank"
+              rel="noopener"
+              id="blockvGvvm0vWHntQ"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20220903072827_photo1_fedceae10fcf.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titlevGvvm0vWHntQ">
+                      멘타로 <span class="Info__Title__Place">용전점</span>
+                    </h2>
+                    <div class="addr"><span>939m</span></div>
+                  </div>
+                  <p class="Category"><span>일식</span>&nbsp;</p>
+                  <div class="Hash">
+                    <span>#혼밥</span
+                    >,&nbsp;<span>#주차</span>,&nbsp;<span>#캐주얼한</span>,&nbsp;<span>#포장</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>31</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />3.3&nbsp;(3명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;0
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >무난한 일식집입니다. 함박스테이크랑 카레맛이 잘 어울렸고
+                    자루소바 육수는 조금 더 진했으면 하는 아쉬움이
+                    있었네요.</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.Nado</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="OAr4zvKgyRaM"
+              href="/profile.php?rid=OAr4zvKgyRaM"
+              target="_blank"
+              rel="noopener"
+              id="blockOAr4zvKgyRaM"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20210917111806_photo1_bedb37106c56.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleOAr4zvKgyRaM">
+                      요런요치킨 <span class="Info__Title__Place">용전점</span>
+                    </h2>
+                    <div class="addr"><span>1.1km</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>치킨</span>, &nbsp;<span>치즈치킨</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#간식</span
+                    >,&nbsp;<span>#배달</span>,&nbsp;<span>#가성비좋은</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>36</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />5.0&nbsp;(2명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;1
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >메뉴는 순살 C 세트입니다. 매우 맛있는 치킨입니다. 두말할것
+                    없이 꼭 드셔보세요. 1만6천원이라는 가격에 치킨 두마리와 콜라
+                    큰것, 치킨무, 소스, 그리고 배달료 포함이라</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>2</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.굥이와함께</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="akX8swhdg7Sa"
+              href="/profile.php?rid=akX8swhdg7Sa"
+              target="_blank"
+              rel="noopener"
+              id="blockakX8swhdg7Sa"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20230620040204359_photo_de3981d6144d.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleakX8swhdg7Sa" class="">
+                      영빈관 <span class="Info__Title__Place">대전</span>
+                    </h2>
+                    <div class="addr"><span>887m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>짬뽕</span>, &nbsp;<span>간짜장</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#부모님</span>,&nbsp;<span>#7080</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>46</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />5.0&nbsp;(2명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;3
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >짬뽕 전문점이라고 가게앞에 써있던거 같던데 개인적으로
+                    간짜장이 맛있었습니다. 짬뽕도 맛있긴했는데 간짜장이
+                    진짜에요..ㅋㅋㅋ 맛있었습니다 ㅋㅋ</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>2</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.진심으로쓰는리뷰</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="xFuUxWeUK22l"
+              href="/profile.php?rid=xFuUxWeUK22l"
+              target="_blank"
+              rel="noopener"
+              id="blockxFuUxWeUK22l"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20200220021647877_photo_e5c80337788c.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titlexFuUxWeUK22l" class="">
+                      어반더쉐프
+                      <span class="Info__Title__Place">대전복합터미널</span>
+                    </h2>
+                    <div class="addr"><span>1.1km</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>파스타</span>, &nbsp;<span>리조또</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#가족모임</span
+                    >,&nbsp;<span>#주차</span>,&nbsp;<span>#크리스마스</span>,&nbsp;<span>#단체석</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>33</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />3.0&nbsp;(3명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;15
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >대전복합터미널 근처에 있는 어반더쉐프입니다. 할머니 모시고
+                    다녀왔어요. 건강한 음식을 위해 간을 세게 하지 않는다고
+                    합니다. 그런데 요청하면 간을 세게 해주신다고 하네요.
+                    확</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">
+                    by.치치<span class="sc-fmKESZ kKLGXQ DiningCode-Badge-Box"
+                      >다코미식가</span
+                    >
+                  </p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="fYKQ9GhAqEvp"
+              href="/profile.php?rid=fYKQ9GhAqEvp"
+              target="_blank"
+              rel="noopener"
+              id="blockfYKQ9GhAqEvp"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20210922175311_photo0_fYKQ9GhAqEvp.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titlefYKQ9GhAqEvp" class="">
+                      역전우동0410
+                      <span class="Info__Title__Place">대전복합터미널점</span>
+                    </h2>
+                    <div class="addr"><span>1km</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>우동</span>, &nbsp;<span>분식</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#혼밥</span
+                    >,&nbsp;<span>#주차</span>,&nbsp;<span>#좋은식재료</span>,&nbsp;<span>#바테이블</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>31</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />3.0&nbsp;(2명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;0
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >고속터미널 음식이 다 그렇듯이 빠르고 싸고 간편하게 먹을
+                    메뉴이고 가격대비 맛도 만족했습니다 바자리로 앉을자리가 좁고
+                    협소한것은 불편했습니다. 빨리 나오는 편이에요 주차는
+                    건물에하</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"></p>
+                  <p class="ReviewWriter">by.hitmi</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="LF8yRxn4KtJI"
+              href="/profile.php?rid=LF8yRxn4KtJI"
+              target="_blank"
+              rel="noopener"
+              id="blockLF8yRxn4KtJI"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20230625124813_photo1_c441ba7040c5.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleLF8yRxn4KtJI">
+                      후지산 회전초밥
+                      <span class="Info__Title__Place">대전복합터미널</span>
+                    </h2>
+                    <div class="addr"><span>883m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>스시</span>, &nbsp;<span>회전초밥</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#혼밥</span
+                    >,&nbsp;<span>#배달</span>,&nbsp;<span>#존맛탱</span>,&nbsp;<span>#포장가능</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>32</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />3.6&nbsp;(4명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;1
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >가성비 있는 가격으로 초밥 드실수 있습니다! 레일에 없는 초밥
+                    드시고 싶으면 앞에 있는 직원에게 말씀하시면 바로 만들어
+                    주십니다</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>2</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.페키</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="7lmHDc0bOsLS"
+              href="/profile.php?rid=7lmHDc0bOsLS"
+              target="_blank"
+              rel="noopener"
+              id="block7lmHDc0bOsLS"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20220509210102_photo1_8e68deea3142.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="title7lmHDc0bOsLS">
+                      서울식당 <span class="Info__Title__Place">대전동구</span>
+                    </h2>
+                    <div class="addr"><span>850m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>한식</span>, &nbsp;<span>해장국</span>&nbsp;
+                  </p>
+                  <div class="Hash"><span>#존맛탱</span>&nbsp;</div>
+                  <div class="Rate">
+                    <p class="Score"><span>47</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />4.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;10
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.돼지런한</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="taNb8j7c4T4A"
+              href="/profile.php?rid=taNb8j7c4T4A"
+              target="_blank"
+              rel="noopener"
+              id="blocktaNb8j7c4T4A"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20200304041654890_photo_91c1889928d2.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titletaNb8j7c4T4A">
+                      진마루감자탕
+                      <span class="Info__Title__Place">대전복합터미널</span>
+                    </h2>
+                    <div class="addr"><span>812m</span></div>
+                  </div>
+                  <p class="Category"><span>감자탕</span>&nbsp;</p>
+                  <div class="Hash">
+                    <span>#혼술</span>,&nbsp;<span>#좌식</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>34</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />4.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;1
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >24시간이고 복합터미널 근처라 접근성이 좋음. 아침식사를 위해
+                    방문하기도 좋은곳. 친절하셔서 기분좋게 식사함.</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.HAPPY</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="4btEHNwHOi6T"
+              href="/profile.php?rid=4btEHNwHOi6T"
+              target="_blank"
+              rel="noopener"
+              id="block4btEHNwHOi6T"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20200104103245_photo1_tINOoGuKWuKn.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="title4btEHNwHOi6T" class="">
+                      루아피체리아
+                      <span class="Info__Title__Place">대전복합터미널</span>
+                    </h2>
+                    <div class="addr"><span>914m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>이탈리아음식</span>, &nbsp;<span>화덕피자</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#데이트코스</span
+                    >,&nbsp;<span>#주차</span>,&nbsp;<span>#배달</span>,&nbsp;<span>#엔틱한</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>34</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />5.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;3
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >이탈리아 레스토랑인데 샐러드는 빵안에 샐러드 크림치즈 등등
+                    싸먹는건데 생소했는데 진짜 맛있음 ㅎ 중독성 있음 피자는 진짜
+                    인생피자임👍 바질페스토에 고기에 어린잎까지 조화가 진짜
+                    맛</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.푸르른</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="Qyz3RqE4H3sp"
+              href="/profile.php?rid=Qyz3RqE4H3sp"
+              target="_blank"
+              rel="noopener"
+              id="blockQyz3RqE4H3sp"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20221201060040_photo1_9JIeC3gALaTw.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleQyz3RqE4H3sp" class="">
+                      에머이
+                      <span class="Info__Title__Place">대전복합터미널점</span>
+                    </h2>
+                    <div class="addr"><span>871m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>쌀국수</span>, &nbsp;<span>분짜</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#해장</span
+                    >,&nbsp;<span>#오빠랑</span>,&nbsp;<span>#단체석</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>32</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />3.4&nbsp;(3명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;0
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >에머이 쌀국수 맛집! 국물 진하고 맛있어요 양도 많아요</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.안뽀뽕</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="C8eUrR6pCNSN"
+              href="/profile.php?rid=C8eUrR6pCNSN"
+              target="_blank"
+              rel="noopener"
+              id="blockC8eUrR6pCNSN"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20220726125558002_photo_0w9x45O7tQVO.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleC8eUrR6pCNSN">
+                      서안메밀집 <span class="Info__Title__Place">용전점</span>
+                    </h2>
+                    <div class="addr"><span>1.3km</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>막국수</span>, &nbsp;<span>메밀</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#국내산</span>,&nbsp;<span>#포장</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>37</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />4.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;0
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >음식 맛있고 직원 분들도 친절하십니다. 양도 꽤 많은
+                    편입니다.</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.밍묭</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="cq8qejDF5e2t"
+              href="/profile.php?rid=cq8qejDF5e2t"
+              target="_blank"
+              rel="noopener"
+              id="blockcq8qejDF5e2t"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20210224104949_photo0_cq8qejDF5e2t.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titlecq8qejDF5e2t" class="">
+                      한희수개성만두
+                      <span class="Info__Title__Place">대전동구</span>
+                    </h2>
+                    <div class="addr"><span>221m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>만두</span>, &nbsp;<span>만두전골</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#가족외식</span
+                    >,&nbsp;<span>#주차</span>,&nbsp;<span>#착한맛집</span>,&nbsp;<span>#단체석</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>42</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />5.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;5
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >만두전골 포장도 깔끔하게 잘 해주네요 겉절이도 주고
+                    조리방법도 함께 들어있어요 국물도 시원하고 만두도
+                    맛있어요👍</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.맛집쪼아횽</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="3zrp0UaosAh5"
+              href="/profile.php?rid=3zrp0UaosAh5"
+              target="_blank"
+              rel="noopener"
+              id="block3zrp0UaosAh5"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20201002030832126_photo_1449270a1a50.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="title3zrp0UaosAh5">
+                      스타벅스
+                      <span class="Info__Title__Place">대전스타일마켓점</span>
+                    </h2>
+                    <div class="addr"><span>1km</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>백반</span>, &nbsp;<span>스프</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#차모임</span
+                    >,&nbsp;<span>#주차</span>,&nbsp;<span>#크리스마스</span>,&nbsp;<span>#테이크아웃</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>37</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />5.0&nbsp;(2명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;0
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >공간이 많이 넓진 않아도 스타일마켓 내부에 있어 앉는공간도
+                    있고 테이크아웃하기도 괜찮아요~</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>2</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.맛집쪼아횽</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="lLzFxUe2TBln"
+              href="/profile.php?rid=lLzFxUe2TBln"
+              target="_blank"
+              rel="noopener"
+              id="blocklLzFxUe2TBln"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20190714021536338_photo_EnjdtHHZ6jYx.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titlelLzFxUe2TBln">
+                      풍전삼계탕
+                      <span class="Info__Title__Place">대전동구</span>
+                    </h2>
+                    <div class="addr"><span>1.2km</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>삼계탕</span>, &nbsp;<span>해물파전</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#몸보신</span
+                    >,&nbsp;<span>#무료주차</span>,&nbsp;<span>#배달</span>,&nbsp;<span>#서민적인</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>37</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />4.0&nbsp;(2명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;5
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >음식 굿 가격도 적당 그러나 바빠서인지 식탁 위생상태 물통
+                    위생상태가 지져분....</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>2</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.붕봉붕</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="H7uZGp0GnSpO"
+              href="/profile.php?rid=H7uZGp0GnSpO"
+              target="_blank"
+              rel="noopener"
+              id="blockH7uZGp0GnSpO"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20210111072304244_photo_931052eaee51.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleH7uZGp0GnSpO">
+                      곰돌이 기사식당
+                      <span class="Info__Title__Place">대전복합터미널</span>
+                    </h2>
+                    <div class="addr"><span>889m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>기사식당</span>, &nbsp;<span>뚝배기불고기</span>&nbsp;
+                  </p>
+                  <div class="Hash"><span>#저렴</span>&nbsp;</div>
+                  <div class="Rate">
+                    <p class="Score"><span>33</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />4.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;0
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >돌솥비빔밥을 주문했는데 뚝배기에 김치찌개? 두부찌개같은걸
+                    주셨음 맛도 괜찮고 친절</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.hyeseon</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="GWfVKNZM2MYy"
+              href="/profile.php?rid=GWfVKNZM2MYy"
+              target="_blank"
+              rel="noopener"
+              id="blockGWfVKNZM2MYy"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20221118121210262_photo_.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleGWfVKNZM2MYy">
+                      대박집 정육식당
+                      <span class="Info__Title__Place">대전동구</span>
+                    </h2>
+                    <div class="addr"><span>1.1km</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>정육식당</span>, &nbsp;<span>소고기</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#단체모임</span
+                    >,&nbsp;<span>#주차</span>,&nbsp;<span>#배달</span>,&nbsp;<span>#여름보양식</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>33</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />2.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;0
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >가격 합리적이고 가게도 깨끗하고 반찬도 괜찮은편이나
+                    소고기원산지 확인 안했으나 꼬추달린 젖소고기 맛인거 같음.
+                    네이버평점이 높아서 갔지만 리뷰이벤트 열심히 하는 가게라
+                    그런지 단번</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"></p>
+                  <p class="ReviewWriter">
+                    by.먹다죽은귀신<span
+                      class="sc-fmKESZ kKLGXQ DiningCode-Badge-Box"
+                      >다코미식가</span
+                    >
+                  </p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="ZZ0Wm7YDQJRg"
+              href="/profile.php?rid=ZZ0Wm7YDQJRg"
+              target="_blank"
+              rel="noopener"
+              id="blockZZ0Wm7YDQJRg"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20211018233911_photo1_bedb37106c56.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleZZ0Wm7YDQJRg">
+                      후라이드참잘하는집
+                      <span class="Info__Title__Place">중리용전점</span>
+                    </h2>
+                    <div class="addr"><span>573m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>치킨</span>, &nbsp;<span>후라이드</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#야식</span
+                    >,&nbsp;<span>#배달</span>,&nbsp;<span>#착한가격</span>,&nbsp;<span>#포장</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>38</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />4.4&nbsp;(2명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;0
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >후참잘 후라이드입니다. 튀김옷과 치킨에 살짝 매콤한 맛이
+                    배어있어서 KFC와 비슷한 맛입니다. 다만 닭 사이즈가 작아서
+                    양은 많지가 않습니다. 평범한 맛의 치킨이어서 별3</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.굥이와함께</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="scEo3gsVypDf"
+              href="/profile.php?rid=scEo3gsVypDf"
+              target="_blank"
+              rel="noopener"
+              id="blockscEo3gsVypDf"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20191201024242558_photo_97428385fcd8.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titlescEo3gsVypDf">
+                      쪽쪽갈비
+                      <span class="Info__Title__Place">대전복합터미널</span>
+                    </h2>
+                    <div class="addr"><span>790m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>껍데기</span>, &nbsp;<span>쪽갈비</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#해장</span
+                    >,&nbsp;<span>#존맛</span>,&nbsp;<span>#포장</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>36</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />4.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;5
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >쪽갈비가 맵기조절가능합니당 매운맛은 많이 맵지않고 맛있고
+                    순한맛은 또그나름대로 짭짜롬하니 맛있어요~</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.맛집쪼아횽</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="cD5zZpJaSphh"
+              href="/profile.php?rid=cD5zZpJaSphh"
+              target="_blank"
+              rel="noopener"
+              id="blockcD5zZpJaSphh"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20200114093329687_photo_F5wbLOpWTmhq.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titlecD5zZpJaSphh">
+                      심야족발 <span class="Info__Title__Place">대전본점</span>
+                    </h2>
+                    <div class="addr"><span>798m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>족발</span>, &nbsp;<span>전복</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#야식</span
+                    >,&nbsp;<span>#주차</span>,&nbsp;<span>#배달</span>,&nbsp;<span>#좋은식재료</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>36</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />4.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;1
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >종업원분 친절하시네요. 족발맛은 간이 세지 않고 담백한
+                    편입니다. 부들부들한 부드러운 족발이며 냄새 안나고
+                    맛있네요.</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">
+                    by.먹다죽은귀신<span
+                      class="sc-fmKESZ kKLGXQ DiningCode-Badge-Box"
+                      >다코미식가</span
+                    >
+                  </p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="AkbgH2xooncz"
+              href="/profile.php?rid=AkbgH2xooncz"
+              target="_blank"
+              rel="noopener"
+              id="blockAkbgH2xooncz"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20191201035203231_photo_97428385fcd8.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleAkbgH2xooncz" class="">
+                      소나무칼국수 <span class="Info__Title__Place">대전</span>
+                    </h2>
+                    <div class="addr"><span>266m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>칼국수</span>, &nbsp;<span>보쌈</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#친구모임</span>,&nbsp;<span>#점심특선</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>34</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />4.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;1
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >점심시간때가 지나서 그런가 한적했던 식당! 보쌈만 시켰는데
+                    배불리 먹었어용</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.맛집쪼아횽</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="4beX5u9vI8IY"
+              href="/profile.php?rid=4beX5u9vI8IY"
+              target="_blank"
+              rel="noopener"
+              id="block4beX5u9vI8IY"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20210515082235562_photo_7f28258221b1.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="title4beX5u9vI8IY">
+                      미소야 <span class="Info__Title__Place">터미널점</span>
+                    </h2>
+                    <div class="addr"><span>987m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>냉모밀</span>, &nbsp;<span>우동</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#혼밥</span
+                    >,&nbsp;<span>#얼큰한국물</span>,&nbsp;<span>#셀프코너</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>32</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />3.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;5
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >맛은 무난해요. 시원하게 한끼 먹을수있어요 가격은
+                    7천원이구요.</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"></p>
+                  <p class="ReviewWriter">by.딸기팬케이크</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="zB5aePS4nNaB"
+              href="/profile.php?rid=zB5aePS4nNaB"
+              target="_blank"
+              rel="noopener"
+              id="blockzB5aePS4nNaB"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20220630123327_photo1_222c7343f723.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titlezB5aePS4nNaB">
+                      다해원 <span class="Info__Title__Place">대전동구</span>
+                    </h2>
+                    <div class="addr"><span>353m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>탕수육</span>, &nbsp;<span>등심탕수육</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#해장</span
+                    >,&nbsp;<span>#깔끔한</span>,&nbsp;<span>#좌식테이블</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>34</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />5.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;4
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >탕수육 피가 정말 얇고 맛있음ㅠ 탕수육 고기도 두툼해서 마치
+                    돈가스 먹은듯한 느낌</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.꼬부기</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="roQdrr3RIEoZ"
+              href="/profile.php?rid=roQdrr3RIEoZ"
+              target="_blank"
+              rel="noopener"
+              id="blockroQdrr3RIEoZ"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20200229123758557_photo_97428385fcd8.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleroQdrr3RIEoZ">
+                      이비가짬뽕 <span class="Info__Title__Place">대전</span>
+                    </h2>
+                    <div class="addr"><span>393m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>짬뽕</span>, &nbsp;<span>탕수육</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#해장</span
+                    >,&nbsp;<span>#배달</span>,&nbsp;<span>#존맛</span>,&nbsp;<span>#포장</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>34</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />4.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;2
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >깔끔한 국물맛과 적절히 매운조합의 짬뽕과 양념가득한 짜장!
+                    다 맛있어요~ 공기밥도 주는 센스~ㅋㅋㅋ</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.맛집쪼아횽</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="aRhg9hfM0gQS"
+              href="/profile.php?rid=aRhg9hfM0gQS"
+              target="_blank"
+              rel="noopener"
+              id="blockaRhg9hfM0gQS"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20230701012032567_photo_c7b23c760fc4.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleaRhg9hfM0gQS">
+                      소담촌 <span class="Info__Title__Place">대전용전점</span>
+                    </h2>
+                    <div class="addr"><span>304m</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>샤브샤브</span>,
+                    &nbsp;<span>월남쌈샤브샤브</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#가족외식</span
+                    >,&nbsp;<span>#주차</span>,&nbsp;<span>#점심특선</span>,&nbsp;<span>#단체석</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>35</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />4.6&nbsp;(2명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;0
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >야채들이 신선하고 사리로 넣어먹을게 많아서 좋았어요! 특히
+                    파인애플 무한리필이 많이 없는데 무한리필이라 좋았어요</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>2</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.오월이</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="KVq0f6itPysk"
+              href="/profile.php?rid=KVq0f6itPysk"
+              target="_blank"
+              rel="noopener"
+              id="blockKVq0f6itPysk"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20200203012958802_photo_97428385fcd8.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleKVq0f6itPysk" class="">
+                      레드엘커피
+                      <span class="Info__Title__Place">대전복합터미널</span>
+                    </h2>
+                    <div class="addr"><span>1.2km</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>커피</span>, &nbsp;<span>갤러리카페</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#차모임</span
+                    >,&nbsp;<span>#주차</span>,&nbsp;<span>#조용한</span>,&nbsp;<span>#단체석</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>34</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />4.3&nbsp;(3명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;3
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >복합터미널 주변에 위치한 갤러리 카페. 조용하고 예쁜
+                    분위기에 멋진 그림들까지 볼수있고 직접 로스팅하신다는 커피도
+                    너무맛있어서 최애카페됬어요🌟</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>3</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.러블링</p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="G4NrWRb07N1q"
+              href="/profile.php?rid=G4NrWRb07N1q"
+              target="_blank"
+              rel="noopener"
+              id="blockG4NrWRb07N1q"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20171202082843_photo1_MA8nQeF15NoI.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleG4NrWRb07N1q" class="">
+                      홍콩반점 <span class="Info__Title__Place">한남대</span>
+                    </h2>
+                    <div class="addr"><span>1.1km</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>중식</span>, &nbsp;<span>해산물</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#배달</span>,&nbsp;<span>#서민적인</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>33</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />3.7&nbsp;(2명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;2
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >맛있었음 배불러 양이많음 배달이 많았지만 역시 중식 빠르게
+                    나와서 굿굿</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">
+                    by.김수현<span class="sc-fmKESZ kKLGXQ DiningCode-Badge-Box"
+                      >다코미식가</span
+                    >
+                  </p>
+                </div>
+              </div></a
+            >
+          </li>
+          <li class="PoiBlockContainer">
+            <div class="SolidBar"></div>
+            <a
+              class="sc-blmETK hVPYPZ PoiBlock"
+              data-rid="YEhCbPcIrMQu"
+              href="/profile.php?rid=YEhCbPcIrMQu"
+              target="_blank"
+              rel="noopener"
+              id="blockYEhCbPcIrMQu"
+              ><div class="RHeader">
+                <img
+                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20220427072325_photo1_6b7d30cb80ea.jpg"
+                  class="title"
+                  loading="lazy"
+                  alt=""
+                />
+                <div class="Info">
+                  <div class="InfoHeader">
+                    <h2 id="titleYEhCbPcIrMQu">
+                      공차
+                      <span class="Info__Title__Place">대전복합터미널점</span>
+                    </h2>
+                    <div class="addr"><span>1km</span></div>
+                  </div>
+                  <p class="Category">
+                    <span>카페</span>, &nbsp;<span>밀크티</span>&nbsp;
+                  </p>
+                  <div class="Hash">
+                    <span>#주말데이트</span
+                    >,&nbsp;<span>#크리스마스</span>,&nbsp;<span>#테이크아웃</span>&nbsp;
+                  </div>
+                  <div class="Rate">
+                    <p class="Score"><span>37</span>점</p>
+                    <div></div>
+                    <p class="UserScore">
+                      <img
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/card__score__star2.png"
+                        width="14px"
+                        height="14px"
+                        alt=""
+                      />5.0&nbsp;(1명)
+                    </p>
+                    <div></div>
+                    <p class="heart">
+                      <img
+                        id="heart"
+                        src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/mobile/react_m_common/poi__like__off2.png"
+                        alt=""
+                      />&nbsp;0
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="PoiBody">
+                <span class="ReviewWrap"
+                  >"<span class="Review"
+                    >음료가 빨리 나와서 좋았고 당도 퍼센테이지를 잘 맞춰주셔서
+                    맛있게 먹었어요</span
+                  >"</span
+                >
+                <div class="ReviewInfo">
+                  <p class="WhoLiked"><span>1</span>명이 추천했습니다.</p>
+                  <p class="ReviewWriter">by.bolbori</p>
+                </div>
+              </div></a
+            >
+          </li> -->
+        </ol>
+      </div>
+      <div class="sc-hABAzo bfRwrI MapMain">
+        <div id="map" tabindex="0"></div>
+
+        <span class="sc-brSaZW kmLBLl Read__More__User"
+          >qkrehdud<img
+            class="User__More"
+            src="https://dcicons.s3.ap-northeast-1.amazonaws.com/new/images/web/react_components/SearchLocationFilter/locarrow.png"
+            alt=""
+        /></span>
+      </div>
+    </div>
+    <script src="../public/js/reviewList.js"></script>
+  </body>
+</html>
