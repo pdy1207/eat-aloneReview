@@ -45,6 +45,3 @@ app.get("/review-list", function (요청, 응답) {
       응답.render("review-list.ejs", { reviewList: result });
     });
 });
-app.get("/test", function (요청, 응답) {
-  응답.render("test.ejs");
-});
