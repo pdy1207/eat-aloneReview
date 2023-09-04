@@ -41,6 +41,9 @@
           <div class="sc-khjJjR geCcyM">
             # 대전
             <span class="ReadMore__Title">
+              # 도영 중심</span
+            >
+            <span class="ReadMore__Title">
               # 비슷한 연령대가 선호하는 맛집</span
             >
           </div>
@@ -52,14 +55,14 @@
             <a
               class="sc-blmETK hVPYPZ PoiBlock"
               data-rid="nq6ponyMxz7B"
-              href="/review"
+              href="/review/<%= reviewList[i]._id %>"
               data-lat="<%= reviewList[i].dataLat %>"
               data-lng="<%= reviewList[i].dataLng %>"
               rel="noopener"
               id="blocknq6ponyMxz7B"
               ><div class="RHeader">
                 <img
-                  src="https://d12zq4w4guyljn.cloudfront.net/300_300_20200703024947_photo1_a555f5542224.jpg"
+                  src="<%= reviewList[i].img %>"
                   class="title"
                   loading="lazy"
                   alt=""

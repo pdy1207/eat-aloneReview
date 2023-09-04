@@ -5,8 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>이집어때? | 리뷰</title>
-    <link rel="stylesheet" href="public/css/style.css" />
-    <link rel="stylesheet" href="public/css/review.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
+    <link rel="stylesheet" href="../public/css/review.css" />
     <link
       rel="shortcut icon"
       href="../public/favicon.ico"
@@ -19,10 +19,6 @@
     ></script>
   </head>
   <body>
-    <!-- 리뷰 리스트 리뷰 관련 글쓰게 끔 또한 수정 및 삭제 
-        마이페이지에선 내 정보 혹은 수정 
-        검색기능..
-    -->
     <div style="position: fixed; z-index: 1000; width: 100%">
       <header class="Header__Content">
         <div class="house-header__Box">
@@ -60,7 +56,9 @@
       <div>
         <div id="subleft-cont">
           <div class="mini-map">
-            <div id="map2" class="map" tabindex="0">
+            <input id="lat" style="display: none" value="<%= data.dataLat %>" />
+            <input id="lng" style="display: none" value="<%= data.dataLng %>" />
+            <div id="map2" class="map" tabindex="0" value="<%= data.title %>">
               <div class="naver">
                 <div>
                   <a
@@ -75,8 +73,8 @@
                 </div>
               </div>
             </div>
-            <a href="http://map.kakao.com/" class="delisor-search">
-              <strong>'은행동'</strong>
+            <a class="delisor-search">
+              <strong>'<%= data.title %>'</strong>
               <br />
               <br />
               맛집 더 검색해보기
@@ -88,48 +86,22 @@
           <div>
             <div class="main-content">
               <ul class="main-content__pic">
+              <% for(var i=0; i<data.image.length; i++) { %>
                 <li class="img btn-gallery-open" data-index="0">
                   <img
-                    src="https://d12zq4w4guyljn.cloudfront.net/750_750_20221101012452_photo1_94ecf3cdea70.jpg"
+                    src="<%= data.image[i] %>"
                     style="width: 100%; height: auto; margin-top: -55px"
                     alt="맛집 사진"
                   />
                 </li>
-                <li class="btn-gallery-open" data-index="1">
-                  <img
-                    src="https://d12zq4w4guyljn.cloudfront.net/300_300_20221101012452_photo2_94ecf3cdea70.jpg"
-                    style="margin-top: -25px"
-                    alt="맛집 사진"
-                  />
-                </li>
-                <li class="btn-gallery-open" data-index="2">
-                  <img
-                    src="https://d12zq4w4guyljn.cloudfront.net/300_300_20220623033428587_photo_eL0L9p5ekIoZ.jpg"
-                    style="margin-top: -25px"
-                    alt="맛집 사진"
-                  />
-                </li>
-                <li class="btn-gallery-open" data-index="3">
-                  <img
-                    src="https://d12zq4w4guyljn.cloudfront.net/300_300_20220623033428001_photo_eL0L9p5ekIoZ.jpg"
-                    style="margin-top: -25px"
-                    alt="맛집 사진"
-                  />
-                </li>
-                <li class="all-pic btn-gallery-open" data-index="0">
-                  <img
-                    src="https://d12zq4w4guyljn.cloudfront.net/300_300_20220623033428745_photo_eL0L9p5ekIoZ.jpg"
-                    style="margin-top: -25px"
-                    alt="맛집 사진"
-                  />
-                </li>
+                <% } %>
               </ul>
               <div class="tit-point">
-                <p class="tit">내가좋아하는한옥</p>
+                <p class="tit"><%= data.title %></p>
               </div>
               <div class="btxt">
-                <a>은행동</a> | <a class="btxt">파스타</a>,
-                <a class="btxt"> 이탈리안레스토랑</a>
+                <a><%= data.space %></a> |
+                <a class="btxt"><%= data.subTitle %></a>
               </div>
               <div class="sns-grade">
                 <p class="grade">
@@ -139,7 +111,7 @@
                       vertical-align: middle;
                       padding-right: 8px;
                     "
-                    >74점</strong
+                    ><%= data.score %>점</strong
                   >
                   <span class="point">
                     23명의 평가 <strong id="lbl_review_point">4.3점</strong>
@@ -165,23 +137,17 @@
             <div class="s-list basic-info">
               <ul class="list">
                 <li class="locat">
-                  <a target="_blank">대전광역시</a>
-                  <a target="_blank">중구</a>
-                  <a target="_blank">은행동</a>
-                  <span>62-1</span>
-                  <a href="http://map.kakao.com/">
-                    <button class="Move__Map__Button">지도보기</button>
-                  </a>
+                  <a target="_blank"><%= data.address %></a>
+                  
+                    <button class="Move__Map__Button">지도를 클릭 해주세요 🗺️</button>
+                  
                 </li>
-                <li class="tel">042-123-123</li>
+                <li class="tel"><%= data.number %></li>
                 <li class="tag" st>
-                  <a>숨은맛집</a>,
-                  <a>데이트</a>
+                  <a><%= data.hashTag %></a>
                 </li>
                 <li class="char">
-                  <a>고급스러운</a>, <a>점심식사</a>, <a>저녁식사</a>,
-                  <a>발렛</a>,
-                  <a>무료주차</a>
+                  <a><%= data.plus %></a>
                 </li>
                 <li id="Favor__User__Popup" class="favor button">
                   이 식당에 401명의 좋아요한 사용자가 있습니다.
@@ -195,7 +161,7 @@
                     background-size: 20px;
                   "
                 >
-                  폐업신고 · 정보수정 제안
+                  <%= data.info %>
                 </li>
               </ul>
             </div>
@@ -203,39 +169,18 @@
             <p class="gap20"></p>
 
             <div id="div_detail" class="s-list detail-info">
-              <div class="busi-hours short">
-                <p class="tit">영업시간</p>
-                <ul class="list">
-                  <li>
-                    <p class="l-txt">토/일</p>
-                    <p class="r-txt">오전 11시 30분 - 오후 8시 30분</p>
-                  </li>
-                  <li>
-                    <p class="l-txt">월-금</p>
-                    <p class="r-txt">오전 11시 30분 - 오후 9시</p>
-                  </li>
-                  <li>
-                    <p class="l-txt">쉬는시간 매주 토/일</p>
-                    <p class="r-txt">오후 3시 - 오후 4시 30분</p>
-                  </li>
-                  <li>
-                    <p class="l-txt">쉬는시간 매주 월-금</p>
-                    <p class="r-txt">오후 3시 - 오후 5시</p>
-                  </li>
-                </ul>
-              </div>
-
-              <p class="gap20"></p>
 
               <div class="menu-info short">
                 <p class="tit">메뉴정보</p>
                 <ul class="list Restaurant_MenuList">
+                <% for(var i=0; i<data.menu.length; i++) { %>
                   <li>
                     <p class="l-txt Restaurant_MenuItem">
-                      <span class="Restaurant_Menu">봉골레</span>
+                      <span class="Restaurant_Menu"><%= data.menu[i] %></span></span>
                     </p>
-                    <p class="r-txt Restaurant_MenuPrice">25,000원</p>
+                    <p class="r-txt Restaurant_MenuPrice"><%= data.price[i] %> 💰</p>
                   </li>
+                <% } %>
                 </ul>
               </div>
 
@@ -265,6 +210,7 @@
         </div>
       </div>
     </div>
+
     <%- include('footer.html') %>
 
     <script>
@@ -340,9 +286,12 @@
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fcbbd5cd53c7588e501aae9ea713ff10"
     ></script>
     <script>
+      const lat = document.getElementById("lat").value;
+      const lng = document.getElementById("lng").value;
+
       var mapContainer = document.getElementById("map2"), // 지도를 표시할 div
         mapOption = {
-          center: new kakao.maps.LatLng(37.54699, 127.09598), // 지도의 중심좌표
+          center: new kakao.maps.LatLng(lat, lng), // 지도의 중심좌표
           draggable: false,
           level: 4, // 지도의 확대 레벨
         };
@@ -354,7 +303,7 @@
         position: markerPosition,
       });
 
-      var markerPosition = new kakao.maps.LatLng(37.54699, 127.09598); // 마커가 표시될 위치입니다
+      var markerPosition = new kakao.maps.LatLng(lat, lng); // 마커가 표시될 위치입니다
 
       // 마커를 생성합니다
       var marker = new kakao.maps.Marker({
@@ -364,14 +313,17 @@
       // 마커가 지도 위에 표시되도록 설정합니다
       marker.setMap(map);
 
+      const space = document.querySelector("#map2").getAttribute("value");
+      console.log(space);
+
       document.querySelector("#map2").addEventListener("click", function () {
         var center = map.getCenter();
 
         // 검색어를 포함한 카카오 맵 URL을 생성합니다
         var mapUrl = `https://map.kakao.com/link/search/${encodeURIComponent(
-          "대전 중구은행동"
+          `${space}`
         )}?map_type=DEFAULT&mapX=${center.getLng()}&mapY=${center.getLat()}&q=${encodeURIComponent(
-          "대전 중구은행동"
+          `${space}`
         )}`;
 
         // 새 창에서 카카오 맵을 엽니다

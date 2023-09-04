@@ -104,7 +104,7 @@ body {
 }
 .main-content .main-content__pic li.img {
   width: 330px;
-  height: 220px;
+  height: 187px;
 }
 
 .main-content .main-content__pic li {
@@ -587,9 +587,7 @@ a {
   height: auto;
   overflow: hidden;
 }
-.s-list.detail-info .menu-info.short .list {
-  height: 92px;
-}
+
 .s-list.detail-info .menu-info .list li {
   background: url(https://s3-ap-northeast-1.amazonaws.com/dcicons/new/images/web/Content/dash-line.jpg)
     repeat-x center;
