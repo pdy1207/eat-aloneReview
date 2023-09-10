@@ -123,10 +123,10 @@
               </div>
               <div class="favor-pic-appra">
                 <a href="JavaScript:void(0);" class="favor" value="Y"
-                  ><span>좋아요(<i class="num">401</i>)</span></a
+                  ><span>좋아요</span></a
                 >
                 <a href="" class="share" id="Rest__Share"><span>공유</span></a>
-                <button class="appra Profile__Evaluation">
+                <button id="openModalBtn" class="appra Profile__Evaluation">
                   <span>평가하기</span>
                 </button>
               </div>
@@ -183,151 +183,98 @@
                 <% } %>
                 </ul>
               </div>
-
-              <div class="taste-tag">
-                <p class="tit">맛집태그</p>
-              </div>
-              <div class="tr_hashTag_area">
-                <p><strong>해시태그 구현</strong></p>
-                <div class="form-group">
-                  <input type="hidden" value="" name="tag" id="rdTag" />
-                </div>
-
-                <ul id="tag-list"></ul>
-
-                <div class="form-group">
-                  <input
-                    type="text"
-                    id="tag"
-                    size="7"
-                    placeholder="엔터로 해시태그를 등록해주세요."
-                    style="width: 300px"
-                  />
-                </div>
-              </div>
             </div>
           </div>
-        </div>
-      </div>
+          <div id="div_detail" class="s-list detail-info">
+            <div class="menu-info short">
+              <p class="tit">방문자 평가 </p> 
+              <% 
+               reviews.sort(function(a, b) {
+                return new Date(b.date) - new Date(a.date);
+              });
+              
+              for(var i=0; i<reviews.length; i++) { %> 
+              <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h2><%= reviews[i].content %></h2>
+                        <%
+                                var date = new Date(reviews[i].date);
+
+                                function formatDateTime(date) {
+                                  var year = date.getFullYear();
+                                  var month = (date.getMonth() + 1).toString().padStart(2, '0');
+                                  var day = date.getDate().toString().padStart(2, '0');
+                                  var hours = date.getHours().toString().padStart(2, '0');
+                                  var minutes = date.getMinutes().toString().padStart(2, '0');
+                                  var seconds = date.getSeconds().toString().padStart(2, '0');
+                                  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+                                }
+
+                                // review.date를 원하는 형식으로 변환
+                                var formattedDateTime = formatDateTime(date);
+                                %>
+                        <p><%= formattedDateTime %></p>
+                    </div>                    
+                </div>
+            </div>      
+            <% } %>     
+            </div>            
+          </div>
+        </div>        
+      </div>      
     </div>
+
+     <!-- 모달 창 -->
+     <form action="/review-add" method="post" id="reviewModal" class="modal">
+      <div class="modal-content">
+          
+          <span class="close">&times;</span>
+          <h2 style="font-family: font">리뷰 작성 </h2>
+          <div class="rating">            
+              <span class="star-cb-group">
+                <input type="radio" id="rating-4" name="rating" value="100" checked="checked" /><label for="rating-4">4</label>
+                <input type="radio" id="rating-3" name="rating" value="70" /><label for="rating-3">3</label>
+                <input type="radio" id="rating-2" name="rating" value="50" /><label for="rating-2">2</label>
+                <input type="radio" id="rating-1" name="rating" value="30" /><label for="rating-1">1</label>
+                <input type="radio" id="rating-0" name="rating" value="10" class="star-cb-clear" /><label for="rating-0">0</label>
+              </span>            
+          </div>
+          <input type="text" name="urlId" style="display: none;" value="<%= data._id %>">
+          <textarea id="reviewText" name="reviewText" placeholder="리뷰를 작성하세요..."></textarea>
+          <button type="submit" id="submitReview">제출</button>
+      </div>
+  </form>
+  
+
 
     <%- include('footer.html') %>
 
-    <script>
-      $(document).ready(function () {
-        var tag = {};
-        var counter = 0;
-
-        // 입력한 값을 태그로 생성한다.
-        function addTag(value) {
-          tag[counter] = value;
-          counter++; // del-btn 의 고유 id 가 된다.
-        }
-
-        // tag 안에 있는 값을 array type 으로 만들어서 넘긴다.
-        function marginTag() {
-          return Object.values(tag).filter(function (word) {
-            return word !== "";
-          });
-        }
-
-        // 서버에 제공
-        $("#tag-form").on("submit", function (e) {
-          var value = marginTag(); // return array
-          $("#rdTag").val(value);
-
-          $(this).submit();
-        });
-
-        $("#tag").on("keypress", function (e) {
-          var self = $(this);
-
-          //엔터나 스페이스바 눌렀을때 실행
-          if (e.key === "Enter" || e.keyCode == 32) {
-            var tagValue = self.val(); // 값 가져오기
-
-            // 해시태그 값 없으면 실행X
-            if (tagValue !== "") {
-              // 같은 태그가 있는지 검사한다. 있다면 해당값이 array 로 return 된다.
-              var result = Object.values(tag).filter(function (word) {
-                return word === tagValue;
-              });
-
-              // 해시태그가 중복되었는지 확인
-              if (result.length == 0) {
-                $("#tag-list").append(
-                  "<li class='tag-item'>" +
-                    tagValue +
-                    "<span class='del-btn' idx='" +
-                    counter +
-                    "'>x</span></li>"
-                );
-                addTag(tagValue);
-                self.val("");
-              } else {
-                alert("태그값이 중복됩니다.");
-              }
-            }
-            e.preventDefault(); // SpaceBar 시 빈공간이 생기지 않도록 방지
-          }
-        });
-
-        // 삭제 버튼
-        // 인덱스 검사 후 삭제
-        $(document).on("click", ".del-btn", function (e) {
-          var index = $(this).attr("idx");
-          tag[index] = "";
-          $(this).parent().remove();
-        });
-      });
-    </script>
+   
     <script
       type="text/javascript"
       src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fcbbd5cd53c7588e501aae9ea713ff10"
     ></script>
+    <script src="../public/js/review.js"></script>
+   
+
     <script>
-      const lat = document.getElementById("lat").value;
-      const lng = document.getElementById("lng").value;
-
-      var mapContainer = document.getElementById("map2"), // 지도를 표시할 div
-        mapOption = {
-          center: new kakao.maps.LatLng(lat, lng), // 지도의 중심좌표
-          draggable: false,
-          level: 4, // 지도의 확대 레벨
+     var logID = 'log',
+     log = $('<div id="'+logID+'"></div>');
+      $('body').append(log);
+      $('[type*="radio"]').change(function () {
+        var me = $(this);
+        var selectedValue = parseInt(me.attr('value')); // 'value' 속성을 정수로 변환
+        var scoreMapping = {
+          0: 10,
+          1: 30,
+          2: 50,
+          3: 70,
+          4: 100
         };
+        var score = scoreMapping[selectedValue] || 0; // 선택한 값에 해당하는 점수 가져오기
 
-      var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-      // 마커를 생성합니다
-      var marker = new kakao.maps.Marker({
-        position: markerPosition,
-      });
-
-      var markerPosition = new kakao.maps.LatLng(lat, lng); // 마커가 표시될 위치입니다
-
-      // 마커를 생성합니다
-      var marker = new kakao.maps.Marker({
-        position: markerPosition,
-      });
-
-      // 마커가 지도 위에 표시되도록 설정합니다
-      marker.setMap(map);
-
-      const space = document.querySelector("#map2").getAttribute("value");
-      console.log(space);
-
-      document.querySelector("#map2").addEventListener("click", function () {
-        var center = map.getCenter();
-
-        // 검색어를 포함한 카카오 맵 URL을 생성합니다
-        var mapUrl = `https://map.kakao.com/link/search/${encodeURIComponent(
-          `${space}`
-        )}?map_type=DEFAULT&mapX=${center.getLng()}&mapY=${center.getLat()}&q=${encodeURIComponent(
-          `${space}`
-        )}`;
-
-        // 새 창에서 카카오 맵을 엽니다
-        window.open(mapUrl, "_blank");
+        log.html(me.attr('value'));
       });
     </script>
   </body>
