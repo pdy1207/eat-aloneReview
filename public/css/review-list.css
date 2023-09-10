@@ -56,7 +56,7 @@ button {
   height: 42px;
   padding: 7px 20px 9px;
   border-bottom: 1px solid rgb(241, 241, 241);
-  font-size: 1.125rem;
+  font-size: 1.3rem;
   font-weight: 500;
   letter-spacing: -0.0675rem;
   color: rgb(32, 32, 32);
@@ -252,7 +252,7 @@ button {
 .hVPYPZ .PoiBody .ReviewWrap .Review {
   color: rgb(80, 80, 80);
   white-space: nowrap;
-  font-size: 14px;
+  font-size: 18px;
   overflow: hidden;
   text-overflow: ellipsis;
 }

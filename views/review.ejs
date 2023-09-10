@@ -187,18 +187,18 @@
           </div>
           <div id="div_detail" class="s-list detail-info">
             <div class="menu-info short">
-              <p class="tit">방문자 평가 </p> 
+              <p class="tit"><%= total %> 명의 방문자 평가❤️</p> 
               <% 
                reviews.sort(function(a, b) {
                 return new Date(b.date) - new Date(a.date);
               });
               
-              for(var i=0; i<reviews.length; i++) { %> 
+              for(var i=0; i<reviews.length; i++) { 
+              %> 
               <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h2><%= reviews[i].content %></h2>
-                        <%
+                      <%
                                 var date = new Date(reviews[i].date);
 
                                 function formatDateTime(date) {
@@ -214,7 +214,29 @@
                                 // review.date를 원하는 형식으로 변환
                                 var formattedDateTime = formatDateTime(date);
                                 %>
-                        <p><%= formattedDateTime %></p>
+                        <div class="timeline-delbox">
+                          <p><%= formattedDateTime %></p>
+                          <button class="btn-3"> <span>삭제</span></button>
+                        </div>
+                      <div class="timeline-box">
+                        
+                        <h2><%= reviews[i].content %></h2>
+                        <div class="timeline-box__star">                        
+                          <p>
+                            <% var score = reviews[i].score; %>
+                            <% var numStars = Math.ceil(score / 20); %>
+                            <% for (var j = 0; j < 5; j++) { %>
+                              <% if (j < numStars) { %>
+                                <span class="star">&#9733;</span>
+                              <% } else { %>
+                                <span class="star">&#9734;</span>
+                              <% } %>
+                            <% } %>
+                          </p>
+                          <p class="box-star__title"><%= reviews[i].score  %> 점 </p>
+                        </div>
+                      </div>
+                      
                     </div>                    
                 </div>
             </div>      

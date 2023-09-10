@@ -34,6 +34,11 @@ app.get("/review-list", function (req, res) {
   db.collection("review-list")
     .find()
     .toArray(function (err, result) {
+      if (err) {
+        console.error(err);
+        return res.status(500).send("서버 오류");
+      }
+
       res.render("review-list.ejs", { reviewList: result });
     });
 });
@@ -61,11 +66,15 @@ app.get("/review/:id", function (req, res) {
             console.error(err);
             return res.status(500).send("서버 오류");
           }
-          console.log(reviewResults);
+
+          // 리뷰의 총 개수 계산
+          const totalReviews = reviewResults.length;
+
           // 가져온 데이터를 렌더링에 전달
           res.render("review.ejs", {
             data: reviewListResult,
             reviews: reviewResults, // 여러 개의 결과를 배열로 전달
+            total: totalReviews,
           });
         });
     }
