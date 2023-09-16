@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>이집어때? | 마이페이지</title>
-    <link rel="stylesheet" href="public/css/style.css" />
-    <link rel="stylesheet" href="public/css/mypage.css" />
+    <title>이집어때? | 회원가입</title>
+    <link rel="stylesheet" href="../public/css/style.css" />
+    <link rel="stylesheet" href="../public/css/mypage.css" />
     <link
       rel="shortcut icon"
       href="../public/favicon.ico"
@@ -25,119 +25,190 @@
       </div>
     </header>
     <div>
-      <div class="title">
-        <div class="row">나의 프로필 조회</div>
-      </div>
-      <div class="row">
-        <table id="tbl_info" class="table table-user">
-          <tbody>
-            <tr id="tr_name">
-              <th>닉네임</th>
-              <td>
-                <input
-                  id="txt_name"
-                  class="input-text w400"
-                  type="text"
-                  value="qkrehdud"
-                  placeholder="이름"
-                /><br /><br />
-                <span class="box-content">
-                  이집어때? 회원정보로 등록하실 닉네임을 입력해주세요. (영문
-                  또는 숫자 4~10자, 한글 포함 시 2~10자)</span
-                >
-              </td>
-            </tr>
-            <tr id="tr_intro">
-              <th>자기소개</th>
-              <td>
-                <input
-                  id="txt_intro"
-                  class="input-text w400"
-                  type="text"
-                  value="qkrehdud"
-                  placeholder="자기소개를 입력하세요."
-                />
-                <br />
-                <br />
-                <div class="w400 tr" style="text-align: right">
-                  <span id="lbl_limit">0</span> / 25
-                </div>
-              </td>
-            </tr>
-            <tr id="tr_email">
-              <th>이메일</th>
-              <td>
-                <input
-                  id="txt_email"
-                  class="input-text w400"
-                  type="text"
-                  value="pdyme1207@gmail.com"
-                  placeholder="이메일"
-                /><br /><br />
-                <span class="box-content">
-                  이집어때? 에서 이용하실 이메일을 입력해 주세요.
-                </span>
-              </td>
-            </tr>
-            <tr id="tr_phone">
-              <th>휴대전화인증</th>
-              <td>
-                <div id="div_phone_Y">
-                  <span class="fs-20 fw-b"
-                    >01012341234
-                    <span class="fc-mint">인증완료</span>
-                  </span>
-                  <button
-                    id="btn_phone"
-                    type="button"
-                    class="btn btn-black w200"
-                  >
-                    휴대전화재인증
-                  </button>
-                </div>
-              </td>
-            </tr>
-            <tr id="tr_pw">
-              <th>비밀번호</th>
-              <td>
-                <div id="div_password_Y">
-                  <input
-                    id="txt_password"
-                    class="input-text w400"
-                    type="password"
-                    placeholder="비밀번호"
-                  /><br /><br />
-                  <!-- <input
-                    id="txt_password2"
-                    class="input-text w400"
-                    type="password"
-                    placeholder="비밀번호 확인"
-                  /><br /><br /> -->
-                  <span class="box-content">
-                    특수문자(예: !@#$ 등) 1자 이상을 포함한 10~15 글자의
-                    비밀번호 입니다.
-                  </span>
-                </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="row" style="padding: 24px 0 0 40px">
-        <div class="row tc" style="padding: 50px 0 55px 0; text-align: center">
-          <a href="/">
-            <button
-              id="btn_submit"
-              type="button"
-              class="btn btn-mint w400 fs-16"
-              style="height: 65px"
-            >
-              회원가입
-            </button>
-          </a>
+      <form action="/register" method="POST">
+        <div class="title">
+          <div class="row">회원가입 👤</div>
         </div>
-      </div>
+        <div class="row">
+          <table id="tbl_info" class="table table-user">
+            <tbody>
+              <tr id="tr_email">
+                <th>이메일</th>
+                <td>
+                  <input
+                    id="txt_email"
+                    class="input-text w400"
+                    type="email"
+                    name="userKey"
+                    placeholder="이메일"
+                  /><br /><br />
+                  <span class="box-content">
+                    이집어때? 에서 이용하실 이메일을 입력해 주세요.
+                  </span>
+                </td>
+              </tr>
+              <tr id="tr_name">
+                <th>아이디</th>
+                <td>
+                  <input
+                    id="txt_name"
+                    class="input-text w400"
+                    type="id"
+                    name="userID"
+                    placeholder="아이디"
+                    oninput="checkUsernameConstraints()"
+                  /><br /><br />
+                  <span id="username_constraints_message" class="box-content">
+                    이집어때? 회원정보로 등록하실 아이디를 입력해주세요. (영문
+                    또는 숫자 4~10자, 한글 포함 시 2~10자)</span
+                  >
+                </td>
+              </tr>
+              <tr id="tr_intro">
+                <th>자기소개</th>
+                <td>
+                  <input
+                    id="txt_intro"
+                    class="input-text w400"
+                    type="text"
+                    name="txtIntro"
+                    placeholder="간단하게 소개를 해주세요."
+                  />
+                  <br />
+                  <br />
+                  <div class="w400 tr" style="text-align: right">
+                    <span id="lbl_limit"></span>
+                  </div>
+                </td>
+              </tr>
+              <tr id="tr_phone">
+                <th>휴대전화인증</th>
+                <td>
+                  <div id="div_phone_Y">
+                    <span class="fs-20 fw-b"
+                      >010********
+                      <span class="fc-mint">인증완료</span>
+                    </span>
+                    <button
+                      id="btn_phone"
+                      type="button"
+                      class="btn btn-black w200"
+                    >
+                      휴대전화재인증
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr id="tr_pw">
+                <th>비밀번호</th>
+                <td>
+                  <div id="div_password_Y">
+                    <input
+                      id="txt_password"
+                      class="input-text w400"
+                      type="password"
+                      placeholder="비밀번호"
+                      name="txtPW"
+                      oninput="checkPasswordMatch()"
+                    /><br /><br />
+                    <input
+                      id="txt_password2"
+                      class="input-text w400"
+                      type="password"
+                      placeholder="비밀번호 확인"
+                      oninput="checkPasswordMatch()"
+                    /><br /><br />
+                    <span id="password_match_message" class="box-content">
+                      특수문자(예: !@#$ 등) 1자 이상을 포함한 10~15 글자의
+                      비밀번호 입니다.
+                    </span>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row" style="padding: 24px 0 0 40px">
+          <div
+            class="row tc"
+            style="padding: 50px 0 55px 0; text-align: center"
+          >
+            <a href="/">
+              <button
+                id="btn_submit"
+                type="submit"
+                class="btn btn-mint w400 fs-16"
+                style="height: 65px"
+              >
+                회원가입
+              </button>
+            </a>
+          </div>
+        </div>
+      </form>
     </div>
     <%- include('footer.html') %>
+    <script>
+      // input 요소와 lbl_limit 요소를 가져옴
+      const inputElement = document.getElementById("txt_intro");
+      const lblLimit = document.getElementById("lbl_limit");
+
+      // input 이벤트를 사용하여 글자 수를 실시간으로 업데이트
+      inputElement.addEventListener("input", function () {
+        const currentCount = inputElement.value.length;
+
+        lblLimit.textContent = currentCount + " / 20";
+
+        if (currentCount >= 20) {
+          inputElement.maxLength = 20; // 20자 이상이면 더 이상 입력하지 못하도록 막음
+          lblLimit.style.color = "red"; // 또는 다른 스타일을 적용
+          lblLimit.innerHTML = "허용 글자를 초과하였습니다.";
+        } else {
+          inputElement.maxLength = 20; // 10자 미만이면 최대 25자까지 입력 가능
+          lblLimit.style.color = ""; // 스타일 초기화 또는 다른 스타일을 적용
+        }
+      });
+      function checkPasswordMatch() {
+        const password1 = document.getElementById("txt_password").value;
+        const password2 = document.getElementById("txt_password2").value;
+        const messageElement = document.getElementById(
+          "password_match_message"
+        );
+
+        if (password1 === password2) {
+          // 비밀번호가 일치하는 경우
+          messageElement.textContent =
+            "특수문자(예: !@#$ 등) 1자 이상을 포함한 10~15 글자의 비밀번호 입니다.";
+          // 메시지 초기화
+          messageElement.style.color = ""; // 글자색 초기화
+        } else {
+          // 비밀번호가 일치하지 않는 경우
+          messageElement.textContent = "비밀번호가 서로 다릅니다.";
+          messageElement.style.color = "red"; // 빨간 글자색 적용
+        }
+      }
+      function checkUsernameConstraints() {
+        const usernameElement = document.getElementById("txt_name");
+        const messageElement = document.getElementById(
+          "username_constraints_message"
+        );
+        const username = usernameElement.value;
+
+        // 정규 표현식을 사용하여 아이디 형식을 검사
+        const regex = /^[A-Za-z0-9]{4,10}$|^[가-힣A-Za-z0-9]{2,10}$/;
+
+        if (regex.test(username)) {
+          // 아이디가 제약 조건을 만족하는 경우
+          messageElement.textContent =
+            "이집어때? 회원정보로 등록하실 아이디를 입력해주세요. (영문또는 숫자 4~10자, 한글 포함 시 2~10자)"; // 메시지 초기화
+          messageElement.style.color = ""; // 글자색 초기화
+        } else {
+          // 아이디가 제약 조건을 만족하지 않는 경우
+          messageElement.textContent =
+            "영문 또는 숫자 4~10자, 한글 포함 시 2~10자로 입력해주세요.";
+          messageElement.style.color = "red"; // 빨간 글자색 적용
+        }
+      }
+    </script>
   </body>
 </html>

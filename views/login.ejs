@@ -9,24 +9,16 @@
       href="../public/favicon.ico"
       type="image/x-icon"
     />
-    <link rel="stylesheet" href="public/css/style.css" />
-    <link rel="stylesheet" href="public/css/login.css" />
+    <link rel="stylesheet" href="../public/css/style.css" />
+    <link rel="stylesheet" href="../public/css/login.css" />
     <title>이집어때? | 로그인</title>
-    <style>
-      .header-login {
-        width: 0px;
-        margin: 0 auto;
-        right: 58px;
-        position: relative;
-      }
-    </style>
   </head>
   <body>
     <header class="Header__Content">
       <div class="house-header__Box">
         <div class="house-header__Titile header-login">
           <div class="house-logo">
-            <a href="/"> <h1 class="reveal-text">이집어때?</h1></a>
+            <a href="/"> <h1 class="reveal-text">이집어때? | 로그인</h1></a>
           </div>
         </div>
       </div>
@@ -34,7 +26,7 @@
     <div class="container">
       <div class="row">
         <div class="login">
-          <form action="/">
+          <form action="/login" method="POST">
             <div class="title">로그인 및 회원가입</div>
             <div class="title-under">
               로그인을 통해 이집어때의 다양한 리뷰를 보여드립니다.
@@ -42,21 +34,23 @@
             <div>
               <input
                 class="input-text"
-                type="text"
-                placeholder="휴대전화번호 또는 이메일 입력"
+                type="email"
+                placeholder="이메일을 입력해주세요"
                 style="margin-bottom: 7px"
+                name="userKey"
               />
               <input
                 class="input-text"
-                type="text"
-                placeholder="비밀번호 입력"
+                type="id"
+                placeholder="아이디를 입력해주세요"
+                name="userEmail"
               />
             </div>
             <div class="login-box">
               <button type="submit" class="btn-login">로그인</button>
             </div>
           </form>
-          <form action="/signup">
+          <form action="/user/signup">
             <div class="box-membership">
               <span>아직 회원이 아니신가요?</span>
               <br />

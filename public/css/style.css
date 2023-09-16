@@ -37,6 +37,7 @@ body {
 .house-header__Titile {
   display: grid;
   grid-auto-flow: column;
+  justify-content: center;
   grid-auto-columns: 282px 506px auto;
   -webkit-box-align: center;
   align-items: center;
@@ -50,6 +51,7 @@ body {
   display: flex;
   -webkit-box-align: center;
   align-items: center;
+  justify-content: center;
   max-width: 168.2px;
   height: 100%;
   padding: 0px 10px;
@@ -80,8 +82,8 @@ img {
   -webkit-box-align: center;
   align-items: center;
   width: 100%;
-  max-width: 506px;
-  min-width: 430px;
+  max-width: 420px;
+  min-width: 410px;
   height: 42px;
   border-radius: 21px;
   background-color: rgb(245, 245, 245);

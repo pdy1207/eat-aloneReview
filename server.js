@@ -8,6 +8,26 @@ app.set("view engine", "ejs");
 app.use("/public", express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+/* 
+  form put delete 작성 가능
+*/
+const methodOverride = require("method-override");
+app.use(methodOverride("_method"));
+
+/* 
+  session
+ */
+
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+const session = require("express-session");
+
+app.use(
+  session({ secret: "1q2w3e4r", resave: true, saveUninitialized: false })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
 var db;
 /* 몽고 DB 접속 코드 */
 const MongoClient = require("mongodb").MongoClient;
@@ -20,16 +40,14 @@ MongoClient.connect(process.env.DB_URL, function (err, client) {
     console.log("8081포트 열렸으며, DB에도 접속완료하였습니다.");
   });
 });
-
-app.get("/login", function (요청, 응답) {
-  // 응답.sendFile(path.join(__dirname + "/", "views", "login.html"));
-  응답.render("login.ejs");
+// test page
+app.get("/test", function (res, req) {
+  req.render("test.ejs");
 });
 
-app.get("/user", function (요청, 응답) {
-  응답.render("mypage.ejs");
-});
+app.use("/user", require("./routes/user.js"));
 
+// review 관련 page
 app.get("/review-list", function (req, res) {
   db.collection("review-list")
     .find()
@@ -97,18 +115,104 @@ app.post("/review-add", function (req, res) {
   );
 });
 
-app.get("/signup", function (요청, 응답) {
-  응답.render("signup.ejs");
+app.post(
+  "/login",
+  passport.authenticate("local", { failureRedirect: "/user/signup" }),
+  function (req, res) {
+    res.redirect("/");
+  }
+);
+
+app.post("/register", function (req, res) {
+  db.collection("login").insertOne(
+    {
+      userKey: req.body.userKey,
+      userID: req.body.userID,
+      txtIntro: req.body.txtIntro,
+      txtPW: req.body.txtPW,
+      date: new Date(),
+    },
+    function (err, result) {
+      console.log(result);
+      res.redirect("/user/login");
+    }
+  );
 });
 
-// test page
-app.get("/test", function (res, req) {
-  req.render("test.ejs");
+app.post("/edit", function (req, res) {
+  db.collection("login").updateOne(
+    {
+      _id: ObjectId(req.body.id),
+    },
+    {
+      $set: {
+        userKey: req.body.userKey,
+        userID: req.body.userID,
+        txtIntro: req.body.txtIntro,
+        txtPW: req.body.txtPW,
+      },
+    },
+    function (err, result) {
+      console.log("수정완료!");
+      res.redirect("/user/info");
+    }
+  );
+});
+
+passport.use(
+  new LocalStrategy(
+    {
+      usernameField: "userKey",
+      passwordField: "userEmail",
+      session: true,
+      passReqToCallback: false,
+    },
+    function (userKey, userEmail, done) {
+      console.log(userKey, userEmail);
+      db.collection("login").findOne(
+        { userKey: userKey },
+        function (err, result) {
+          console.log(result);
+          if (err) return done(result);
+
+          if (!result)
+            return done(null, false, { message: "사용자를 찾을 수 없습니다." });
+          if (userEmail == result.userID) {
+            return done(null, result);
+          } else {
+            return done(null, false, { message: "비밀번호가 틀렸습니다." });
+          }
+        }
+      );
+    }
+  )
+);
+
+/* 
+ 세션 만들기
+ 세션 저장시키는 코드 (로그인 성공시 발동) 
+ id를 이용하여 세션을 저장시키는 코드 (로그인 성공시 발동)
+ 세션 데이터를 만들고 세션의 ID정보를 쿠키로 보냄
+*/
+passport.serializeUser(function (user, done) {
+  done(null, user.userKey);
+});
+
+/* 
+  나중에
+  이 세션 데이터를 가진 사람을 DB에서 찾아 주세요(마이페이지 접속시 발동)
+*/
+passport.deserializeUser(function (아이디, done) {
+  db.collection("login").findOne({ userKey: 아이디 }, function (에러, 결과) {
+    done(null, 결과);
+  });
 });
 
 //기본 페이지 로드 200
-app.get("/", function (요청, 응답) {
-  응답.render("index.ejs");
+app.get("/", function (req, res) {
+  const loginLinkText = req.isAuthenticated() ? "로그아웃" : "로그인";
+  const loginLinkTextURL = req.isAuthenticated() ? "logout" : "login";
+  res.render("index.ejs", { loginLinkText, loginLinkTextURL });
 });
 
 //에러 페이지 로드 404
