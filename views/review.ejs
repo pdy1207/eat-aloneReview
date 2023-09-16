@@ -17,6 +17,7 @@
       integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
       crossorigin="anonymous"
     ></script>
+    <script src="https://kit.fontawesome.com/e53b3f6679.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <div style="position: fixed; z-index: 1000; width: 100%">
@@ -250,9 +251,9 @@
      <!-- 모달 창 -->
      <form action="/review-add" method="post" id="reviewModal" class="modal">
       <div class="modal-content">
-          
+          <img src="">
           <span class="close">&times;</span>
-          <h2 style="font-family: font">리뷰 작성 </h2>
+          <h2 style="font-family: font; color: #ff7400;">리뷰 작성 <i class="fa-solid fa-medal" style="color: ff7400;"></i></h2>
           <div class="rating">            
               <span class="star-cb-group">
                 <input type="radio" id="rating-4" name="rating" value="100" checked="checked" /><label for="rating-4">4</label>
@@ -262,9 +263,19 @@
                 <input type="radio" id="rating-0" name="rating" value="10" class="star-cb-clear" /><label for="rating-0">0</label>
               </span>            
           </div>
-          <input type="text" name="urlId" style="display: none;" value="<%= data._id %>">
-          <textarea id="reviewText" name="reviewText" placeholder="리뷰를 작성하세요..."></textarea>
-          <button type="submit" id="submitReview">제출</button>
+          
+          <div class='file file--upload'>
+            <label for='input-file'>
+              <i class="fa-solid fa-cloud-arrow-up"></i>Upload
+            </label>
+            <input id='input-file' type='file' />
+          </div>
+          <div class="review-box">
+            <input type="text" name="urlId" style="display: none;" value="<%= data._id %>">
+            <textarea id="reviewText" name="reviewText" placeholder="리뷰를 작성해주세요 👨‍💻"></textarea>
+            <button type="submit" id="submitReview">제출</button>
+          </div>
+            <span id="lbl_limit"></span>
       </div>
   </form>
   
@@ -297,6 +308,26 @@
         var score = scoreMapping[selectedValue] || 0; // 선택한 값에 해당하는 점수 가져오기
 
         log.html(me.attr('value'));
+      });
+
+      // input 요소와 lbl_limit 요소를 가져옴
+      const inputElement = document.getElementById("reviewText");
+      const lblLimit = document.getElementById("lbl_limit");
+
+      // input 이벤트를 사용하여 글자 수를 실시간으로 업데이트
+      inputElement.addEventListener("input", function () {
+        const currentCount = inputElement.value.length;
+
+        lblLimit.textContent = currentCount + " / 20";
+
+        if (currentCount >= 20) {
+          inputElement.maxLength = 20; // 20자 이상이면 더 이상 입력하지 못하도록 막음
+          lblLimit.style.color = "red"; // 또는 다른 스타일을 적용
+          lblLimit.innerHTML = "허용 글자를 초과하였습니다.";
+        } else {
+          inputElement.maxLength = 20; // 10자 미만이면 최대 25자까지 입력 가능
+          lblLimit.style.color = ""; // 스타일 초기화 또는 다른 스타일을 적용
+        }
       });
     </script>
   </body>

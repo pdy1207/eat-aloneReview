@@ -757,7 +757,7 @@ a {
 .star-cb-group > input + label:hover ~ label:before,
 .star-cb-group > input + label:hover:before {
   content: "\2605"; /* 채워진 별 아이콘 */
-  color: #e52;
+  color: #2483ff;
   text-shadow: 0 0 1px #333;
 }
 
@@ -834,4 +834,81 @@ a {
   background: #fff;
   color: rgba(2, 126, 251, 1);
   transition: all 0.5s;
+}
+.file {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file > input[type="file"] {
+  display: none;
+}
+
+.file > label {
+  font-size: 1rem;
+  font-weight: 300;
+  cursor: pointer;
+  outline: 0;
+  user-select: none;
+  border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
+  border-style: solid;
+  border-radius: 4px;
+  border-width: 1px;
+  background-color: hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 29%);
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.file > label:hover {
+  border-color: hsl(0, 0%, 21%);
+}
+
+.file > label:active {
+  background-color: hsl(0, 0%, 96%);
+}
+
+.file > label > i {
+  padding-right: 5px;
+}
+
+.file--upload > label {
+  color: hsl(204, 86%, 53%);
+  border-color: hsl(204, 86%, 53%);
+}
+
+.file--upload > label:hover {
+  border-color: hsl(204, 86%, 53%);
+  background-color: hsl(204, 86%, 96%);
+}
+
+.file--upload > label:active {
+  background-color: hsl(204, 86%, 91%);
+}
+#reviewText {
+  width: 70%;
+  line-height: 22px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #666;
+  border: 1px solid #dfdfdf;
+  padding: 17px 20px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+#reviewText::placeholder {
+  text-align: center;
+}
+
+.review-box {
+  display: flex;
+  justify-content: space-between;
 }

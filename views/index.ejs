@@ -10,6 +10,7 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="public/css/style.css" />
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <title>이집어때?</title>
   </head>
   <body>
@@ -23,6 +24,7 @@
             <div class="house-search">
               <div class="house-search__Box">
                 <button
+                  id="search"
                   class="house-search__Button"
                   type="button"
                   aria-label="검색하기 버튼"
@@ -32,8 +34,9 @@
                     alt=""
                   /></button
                 ><input
+                  id="search-input"
                   class="search-input"
-                  placeholder="지역, 음식 또는 식당명 입력"
+                  placeholder="ex) 틈새라면 만포분식 홍콩반점 멘타로 요런요치킨 🔍"
                   value=""
                 />
               </div>
@@ -139,5 +142,11 @@
       </div>
     </div>
     <%- include('footer.html') %>
+    <script>
+      $("#search").click(function () {
+        var inputVal = $("#search-input").val();
+        window.location.replace(`/search?value=${inputVal}`);
+      });
+    </script>
   </body>
 </html>

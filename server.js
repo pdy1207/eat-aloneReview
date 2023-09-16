@@ -45,6 +45,15 @@ app.get("/test", function (res, req) {
   req.render("test.ejs");
 });
 
+function loginSuccess(req, res, next) {
+  if (req.user) {
+    next(); // req.user가 있으면 next() 통과
+  } else {
+    res.render("login.ejs");
+    // req.user가 없으면 경고 메세지
+  }
+}
+
 app.use("/user", require("./routes/user.js"));
 
 // review 관련 page
@@ -123,6 +132,7 @@ app.post(
   }
 );
 
+// 회원가입
 app.post("/register", function (req, res) {
   db.collection("login").insertOne(
     {
@@ -133,12 +143,12 @@ app.post("/register", function (req, res) {
       date: new Date(),
     },
     function (err, result) {
-      console.log(result);
       res.redirect("/user/login");
     }
   );
 });
 
+// 수정
 app.post("/edit", function (req, res) {
   db.collection("login").updateOne(
     {
@@ -159,6 +169,53 @@ app.post("/edit", function (req, res) {
   );
 });
 
+// 검색
+app.get("/search", loginSuccess, (req, res) => {
+  const requestedTitle = req.query.value; // 검색어를 query parameter로부터 가져옴
+
+  // review-list에서 title로 검색
+  db.collection("review-list").findOne(
+    {
+      title: requestedTitle,
+    },
+    function (err, reviewListResult) {
+      if (err) {
+        console.error(err);
+        return res.status(500).send("서버 오류");
+      }
+
+      if (!reviewListResult) {
+        // 검색 결과가 없을 때 예외 처리
+        return res.render("error.ejs", {
+          query: requestedTitle, // 검색어를 전달
+        });
+      }
+
+      const requestedId = reviewListResult._id; // 검색 결과에서 _id 가져옴
+      // review 컬렉션에서 검색
+      db.collection("review")
+        .find({
+          postId: requestedId,
+        })
+        .toArray(function (err, reviewResults) {
+          if (err) {
+            console.error(err);
+            return res.status(500).send("서버 오류");
+          }
+
+          // 리뷰의 총 개수 계산
+          const totalReviews = reviewResults.length;
+          // 가져온 데이터를 렌더링에 전달
+          res.render("review.ejs", {
+            data: reviewListResult,
+            reviews: reviewResults, // 여러 개의 결과를 배열로 전달
+            total: totalReviews,
+          });
+        });
+    }
+  );
+});
+
 passport.use(
   new LocalStrategy(
     {
@@ -168,11 +225,10 @@ passport.use(
       passReqToCallback: false,
     },
     function (userKey, userEmail, done) {
-      console.log(userKey, userEmail);
+      // console.log(userKey, userEmail);
       db.collection("login").findOne(
         { userKey: userKey },
         function (err, result) {
-          console.log(result);
           if (err) return done(result);
 
           if (!result)
