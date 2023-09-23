@@ -57,8 +57,9 @@ function loginSuccess(req, res, next) {
 app.use("/user", require("./routes/user.js"));
 
 // review 관련 page
-app.get("/review-list", function (req, res) {
-  db.collection("review-list")
+app.get("/review-list", async function (req, res) {
+  await db
+    .collection("review-list")
     .find()
     .toArray(function (err, result) {
       if (err) {
@@ -70,11 +71,13 @@ app.get("/review-list", function (req, res) {
     });
 });
 
-app.get("/review/:id", function (req, res) {
+app.get("/review/:id", async function (req, res) {
+  const loginLinkText = req.isAuthenticated() ? "로그아웃" : "로그인";
+  const loginLinkTextURL = req.isAuthenticated() ? "logout" : "login";
   const requestedId = req.params.id; // 동적으로 :id 파라미터의 값을 가져옴
 
   // 두 개의 컬렉션에서 데이터를 가져옴
-  db.collection("review-list").findOne(
+  await db.collection("review-list").findOne(
     {
       _id: ObjectId(requestedId),
     },
@@ -102,15 +105,17 @@ app.get("/review/:id", function (req, res) {
             data: reviewListResult,
             reviews: reviewResults, // 여러 개의 결과를 배열로 전달
             total: totalReviews,
+            loginLinkText: loginLinkText,
+            loginLinkTextURL: loginLinkTextURL,
           });
         });
     }
   );
 });
 
-app.post("/review-add", function (req, res) {
+app.post("/review-add", async function (req, res) {
   const requestedId = req.body.urlId;
-  db.collection("review").insertOne(
+  await db.collection("review").insertOne(
     {
       content: req.body.reviewText,
       score: req.body.rating,
@@ -149,8 +154,8 @@ app.post("/register", function (req, res) {
 });
 
 // 수정
-app.post("/edit", function (req, res) {
-  db.collection("login").updateOne(
+app.post("/edit", async function (req, res) {
+  await db.collection("login").updateOne(
     {
       _id: ObjectId(req.body.id),
     },
@@ -170,11 +175,11 @@ app.post("/edit", function (req, res) {
 });
 
 // 검색
-app.get("/search", loginSuccess, (req, res) => {
+app.get("/search", loginSuccess, async (req, res) => {
   const requestedTitle = req.query.value; // 검색어를 query parameter로부터 가져옴
 
   // review-list에서 title로 검색
-  db.collection("review-list").findOne(
+  await db.collection("review-list").findOne(
     {
       title: requestedTitle,
     },
