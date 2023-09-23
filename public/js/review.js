@@ -106,3 +106,64 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   });
 });
+
+var logID = "log",
+  log = $('<div id="' + logID + '"></div>');
+$("body").append(log);
+$('[type*="radio"]').change(function () {
+  var me = $(this);
+  var selectedValue = parseInt(me.attr("value")); // 'value' 속성을 정수로 변환
+  var scoreMapping = {
+    0: 10,
+    1: 30,
+    2: 50,
+    3: 70,
+    4: 100,
+  };
+  var score = scoreMapping[selectedValue] || 0; // 선택한 값에 해당하는 점수 가져오기
+
+  log.html(me.attr("value"));
+});
+
+/* 해당 메모부분 */
+
+// input 요소와 lbl_limit 요소를 가져옴
+const inputElement = document.getElementById("reviewText");
+const lblLimit = document.getElementById("lbl_limit");
+
+// input 이벤트를 사용하여 글자 수를 실시간으로 업데이트
+inputElement.addEventListener("input", function () {
+  const currentCount = inputElement.value.length;
+
+  lblLimit.textContent = currentCount + " / 25";
+
+  if (currentCount >= 25) {
+    inputElement.maxLength = 25; // 25자 이상이면 더 이상 입력하지 못하도록 막음
+    lblLimit.style.color = "red"; // 또는 다른 스타일을 적용
+    lblLimit.innerHTML = "허용 글자를 초과하였습니다.";
+  } else {
+    inputElement.maxLength = 25; // 10자 미만이면 최대 25자까지 입력 가능
+    lblLimit.style.color = ""; // 스타일 초기화 또는 다른 스타일을 적용
+  }
+});
+
+function previewImage(input) {
+  var preview = document.getElementById("preview");
+  var imagePreviewDiv = document.getElementById("image-preview");
+
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+
+    reader.onload = function (e) {
+      preview.src = e.target.result;
+      preview.style.display = "block";
+      imagePreviewDiv.style.display = "flex";
+      imagePreviewDiv.style.justifyContent = "center";
+    };
+
+    reader.readAsDataURL(input.files[0]);
+  } else {
+    preview.style.display = "none";
+    imagePreviewDiv.style.display = "none";
+  }
+}

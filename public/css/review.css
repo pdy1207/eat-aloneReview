@@ -702,15 +702,19 @@ a {
 }
 
 .modal-content {
-  font-family: none;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   background-color: #fefefe;
   margin: 10% auto;
   padding: 20px;
-  border: 1px solid #888;
-  width: 25%;
+  border: 3px solid #888;
+  width: 31%;
   text-align: center;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  border-color: #ff7400;
+  border-radius: 15px;
 }
 
 .close {
@@ -739,7 +743,7 @@ a {
 .star-cb-group > input + label {
   display: inline-block;
   overflow: hidden;
-  width: 1em;
+  width: 0.9em;
   white-space: nowrap;
   cursor: pointer;
   margin: 0;
@@ -838,8 +842,9 @@ a {
 .file {
   position: relative;
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  margin-bottom: 28px;
 }
 
 .file > input[type="file"] {
@@ -880,12 +885,12 @@ a {
 }
 
 .file--upload > label {
-  color: hsl(204, 86%, 53%);
-  border-color: hsl(204, 86%, 53%);
+  color: #ff7400;
+  border-color: #ff7400;
 }
 
 .file--upload > label:hover {
-  border-color: hsl(204, 86%, 53%);
+  border-color: #ff7400;
   background-color: hsl(204, 86%, 96%);
 }
 
@@ -893,22 +898,53 @@ a {
   background-color: hsl(204, 86%, 91%);
 }
 #reviewText {
-  width: 70%;
+  width: 100%;
   line-height: 22px;
   font-size: 16px;
   font-weight: 400;
-  color: #666;
+  color: #222;
   border: 1px solid #dfdfdf;
   padding: 17px 20px;
-  align-items: center;
-  display: flex;
-  justify-content: center;
 }
 #reviewText::placeholder {
   text-align: center;
 }
 
-.review-box {
+#preview {
+  justify-content: center;
+  display: none;
+  max-width: 100%;
+  max-height: 200px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  margin-bottom: 36px;
+}
+.review-title {
+  font-family: font;
+  background: linear-gradient(45deg, #ffa500, #4169e1);
+  -webkit-background-clip: text; /* 웹킷 브라우저 지원 */
+  background-clip: text;
+  color: transparent;
+  font-size: 36px; /* 원하는 크기로 설정 */
+  font-weight: bold; /* 원하는 글꼴 두께로 설정 */
+}
+.rating {
+  margin: 14px;
+}
+
+#lbl_limit {
+  text-align: right !important;
   display: flex;
-  justify-content: space-between;
+  padding-top: 10px;
+}
+#submitReview {
+  color: #ff7400;
+  border: 1px solid #ff7400;
+  background: transparent;
+  padding: 17px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 13px;
+}
+#submitReview:hover {
+  background-color: hsl(204, 86%, 96%);
 }
