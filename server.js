@@ -140,23 +140,39 @@ app.get("/review/:id", async function (req, res) {
   );
 });
 
-app.post("/review-add", upload.single("photo"), async function (req, res) {
-  const requestedId = req.body.urlId;
-  const imagePath = req.file ? `${req.file.filename}` : null;
+app.post(
+  "/review-add",
+  loginSuccess,
+  upload.single("photo"),
+  async function (req, res) {
+    const requestedId = req.body.urlId;
+    const imagePath = req.file ? `${req.file.filename}` : null;
 
-  await db.collection("review").insertOne(
-    {
-      content: req.body.reviewText,
-      score: req.body.rating,
-      postId: req.body.urlId,
-      date: new Date(),
-      imageURL: imagePath,
-    },
-    function (err, result) {
-      console.log("리뷰 작성 완료!");
-      res.redirect("/review/" + requestedId);
-    }
-  );
+    await db.collection("review").insertOne(
+      {
+        content: req.body.reviewText,
+        score: req.body.rating,
+        postId: req.body.urlId,
+        date: new Date(),
+        imageURL: imagePath,
+      },
+      function (err, result) {
+        console.log("리뷰 작성 완료!");
+        res.redirect("/review/" + requestedId);
+      }
+    );
+  }
+);
+
+app.delete("/delete", loginSuccess, function (req, res) {
+  console.log(req.body._id);
+  var idVal = req.body._id;
+  var objectId = new ObjectId(idVal);
+  console.log(idVal);
+  db.collection("review").deleteOne({ _id: objectId }, function (에러, 결과) {
+    console.log(`${idVal}의 해당 데이터를 삭제 완료 하였습니다.`);
+    res.status(200).send({ message: "성공했습니다" });
+  });
 });
 
 app.post(

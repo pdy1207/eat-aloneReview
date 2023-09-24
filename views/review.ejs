@@ -220,7 +220,16 @@
                                 <img src=".<%= reviews[i].imageUrl %>" alt="Review Image" style="max-width: 50%;">
                         <div class="timeline-delbox">
                           <p><%= formattedDateTime %></p>
-                          <button class="btn-3"> <span>삭제</span></button>
+                          <% if (loginLinkText === '로그인') { %>
+                              <button class="btn-3 delete" data-id="<%= reviews[i]._id %>" disabled>
+                                <span class="delete" data-id="<%= reviews[i]._id %>" disabled>로그인 먼저 해주세요</span>
+                              </button>
+                            <% } else { %>
+                              <button class="btn-3 delete" data-id="<%= reviews[i]._id %>" disabled>
+                                <span class="delete" data-id="<%= reviews[i]._id %>" disabled>삭제</span>
+                              </button>
+                            <% } %>
+
                         </div>
                       <div class="timeline-box">
                         
@@ -298,7 +307,29 @@
     ></script>
     <script src="../public/js/review.js"></script>
    
+    <script>
+     
 
+      $(".delete").click(function (e) {
+        var 글번호 = e.target.dataset.id;
+        var 지금누른것 = $(this);
+
+        if (loginLinkText === '로그아웃') { // 로그인 상태인 경우에만 실행
+          $.ajax({
+            method: "DELETE",
+            url: "/delete",
+            data: { _id: 글번호 } // 여기서 _id로 전달
+          })
+          .done(function(result) {
+            지금누른것.closest(".timeline-item").fadeOut();
+          })
+          .fail(function(a, b, c) {
+            console.log(`실패 ${(a, b, c)}`)
+          });
+        }
+      });
+
+      </script>
     
   </body>
 </html>
