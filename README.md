@@ -64,13 +64,10 @@ $ npm run serve
 
 
 ## 화면 소개 🏠
-| 메인 페이지  |  결제 페이지   |
+| 메인 페이지  |  세부 페이지   |
 | :-------------------------------------------: | :------------: |
-|  이미지 준비중 | 이미지 준비중 |  
-| 세부 일부 페이지   |  세부 일부 페이지2  |  
-| 이미지 준비중   |  이미지 준비중   |
+|  <img width="500" src="https://github.com/pdy1207/eat-aloneReview/assets/110442250/54bb436a-a80e-4df4-bf00-3b1d0229e7d3"/>  |  <img width="500" src="https://github.com/pdy1207/eat-aloneReview/assets/110442250/d5bb9ae9-d2df-4db1-8199-70cd2ae5f915"/> |  
+| 리뷰 페이지   |  리뷰 리스트 사진  |  
+|  <img width="500" src="https://github.com/pdy1207/eat-aloneReview/assets/110442250/91d374bc-f9c9-4033-baf4-b753d17a5883"/>    |  <img width="500" src="https://github.com/pdy1207/eat-aloneReview/assets/110442250/e2bb609f-0a2b-4e5a-8fce-e893b83f5c83"/>   |
 | 회원가입 | 로그인 |  
-| 이미지 준비중   |  이미지 준비중   |
-| 리뷰페이지 | 글작성 |  
-| 검색 |  |  
-| 이미지 준비중   |    |
+| <img width="500" src="https://github.com/pdy1207/eat-aloneReview/assets/110442250/20da6678-b014-469a-bef2-eccc37bc48dd"/>    |  <img width="500" src="https://github.com/pdy1207/eat-aloneReview/assets/110442250/6612d7a9-bb0c-4356-a32e-c62152e91c32"/>   |
