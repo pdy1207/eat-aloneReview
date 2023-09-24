@@ -61,7 +61,8 @@ $ npm run serve
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=Javascript&logoColor=white)
 ![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=Sass&logoColor=fff)
 ![Css](https://img.shields.io/badge/Css-1572B6?style=for-the-badge&logo=css3&logoColor=fff)
-
+- [kakaoMap](https://developers.kakao.com/)
+- [naverMap](https://navermaps.github.io/maps.js.ncp/)
 
 ## 화면 소개 🏠
 | 메인 페이지  |  세부 페이지   |
