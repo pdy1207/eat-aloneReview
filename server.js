@@ -8,6 +8,28 @@ app.set("view engine", "ejs");
 app.use("/public", express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
+/* image 저장 경로 파일 */
+
+let multer = require("multer");
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./public/img"); // public/image 폴더 안에 이미지 저장
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname); // 어떤 파일명으로 저장하고싶은지 ?
+  },
+  fileFilter: function (req, file, callback) {
+    var ext = path.extname(file.originalname);
+    if (ext !== ".png" && ext !== ".jpg" && ext !== ".jpeg") {
+      return callback(new Error("PNG, JPG만 업로드하세요"));
+    }
+    callback(null, true);
+  },
+  limits: {
+    fileSize: 1024 * 1024,
+  },
+});
+var upload = multer({ storage: storage });
 /* 
   form put delete 작성 가능
 */
@@ -100,6 +122,11 @@ app.get("/review/:id", async function (req, res) {
           // 리뷰의 총 개수 계산
           const totalReviews = reviewResults.length;
 
+          // 이미지 경로를 각 리뷰에 포함시킴
+          for (const review of reviewResults) {
+            review.imageUrl = `./public/img/${review.imageURL}`;
+          }
+
           // 가져온 데이터를 렌더링에 전달
           res.render("review.ejs", {
             data: reviewListResult,
@@ -113,14 +140,17 @@ app.get("/review/:id", async function (req, res) {
   );
 });
 
-app.post("/review-add", async function (req, res) {
+app.post("/review-add", upload.single("photo"), async function (req, res) {
   const requestedId = req.body.urlId;
+  const imagePath = req.file ? `${req.file.filename}` : null;
+
   await db.collection("review").insertOne(
     {
       content: req.body.reviewText,
       score: req.body.rating,
       postId: req.body.urlId,
       date: new Date(),
+      imageURL: imagePath,
     },
     function (err, result) {
       console.log("리뷰 작성 완료!");

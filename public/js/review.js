@@ -163,7 +163,7 @@ function previewImage(input) {
 
     reader.readAsDataURL(input.files[0]);
   } else {
-    preview.style.display = "none";
-    imagePreviewDiv.style.display = "none";
+    // preview.style.display = "none";
+    // imagePreviewDiv.style.display = "none";
   }
 }

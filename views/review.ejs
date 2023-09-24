@@ -217,6 +217,7 @@
                                 // review.date를 원하는 형식으로 변환
                                 var formattedDateTime = formatDateTime(date);
                                 %>
+                                <img src=".<%= reviews[i].imageUrl %>" alt="Review Image" style="max-width: 50%;">
                         <div class="timeline-delbox">
                           <p><%= formattedDateTime %></p>
                           <button class="btn-3"> <span>삭제</span></button>
@@ -251,9 +252,8 @@
     </div>
 
      <!-- 모달 창 -->
-     <form action="/review-add" method="post" id="reviewModal" class="modal">
+     <form action="/review-add" method="post" id="reviewModal" class="modal" enctype="multipart/form-data">
       <div class="modal-content">
-          <img src="">
           <span class="close">&times;</span>
           <h2 class="review-title">리뷰 작성 <i class="fa-solid fa-medal" style="color: ff7400;"></i></h2>
           <div class="rating">            
@@ -271,7 +271,7 @@
           </div>
 
           <div class='file file--upload'>
-            <input id='input-file' type='file' accept=".png, .jpg" onchange="previewImage(this)"/>
+            <input id='input-file' type='file' accept=".png, .jpg" onchange="previewImage(this)" name="photo" />
             <label for='input-file'>
               <i class="fa-solid fa-cloud-arrow-up" style="color: #ff7400;"></i>사진을 업로드 해주세요 📷
             </label>

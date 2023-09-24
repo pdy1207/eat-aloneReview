@@ -844,7 +844,8 @@ a {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  margin-bottom: 28px;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .file > input[type="file"] {
@@ -912,11 +913,11 @@ a {
 
 #preview {
   justify-content: center;
-  display: none;
   max-width: 100%;
-  max-height: 200px;
+  max-height: 80%;
   box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   margin-bottom: 36px;
+  margin-top: 15px;
 }
 .review-title {
   font-family: font;
@@ -934,7 +935,7 @@ a {
 #lbl_limit {
   text-align: right !important;
   display: flex;
-  padding-top: 10px;
+  padding-top: 5px;
 }
 #submitReview {
   color: #ff7400;
@@ -947,4 +948,17 @@ a {
 }
 #submitReview:hover {
   background-color: hsl(204, 86%, 96%);
+}
+#image-preview {
+  width: 100%;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px dashed #dbdbdb;
+}
+
+#alttext-image {
+  background-image: url(https://img.icons8.com/pastel-glyph/2x/image-file.png);
 }
